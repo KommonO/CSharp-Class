@@ -7,3 +7,6 @@ C:\Users\Kirsten\Desktop\Spring 2017\C# Class\Homework Assignments\Minesweeper\M
 C:\Users\Kirsten\Desktop\Spring 2017\C# Class\Homework Assignments\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.csproj.GenerateResource.Cache
 C:\Users\Kirsten\Desktop\Spring 2017\C# Class\Homework Assignments\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
 C:\Users\Kirsten\Desktop\Spring 2017\C# Class\Homework Assignments\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Homework\Minesweeper\Minesweeper\Minesweeper\bin\Debug\Minesweeper.exe.config
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Homework\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.exe
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Homework\Minesweeper\Minesweeper\Minesweeper\obj\Debug\Minesweeper.pdb
