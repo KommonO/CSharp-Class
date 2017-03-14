@@ -1,0 +1,37 @@
+Assignment:  Minesweeper C# (Homework2) 
+Assigned:End of February
+Started:3/13/2017
+Due: April 3,2017
+Application: Windows Forms
+
+
+Creating 1 form with three attributes
+1. A menu strip
+2. A Game board(10x10)
+	This for sure can be an object
+3. A status Strip
+	possible object?
+
+Menu Strip
+	Buttons: Game Stats, Restart Game, Exit, Help
+
+	Game Stats: A window will pop up displaying win/loss ratio, Average time to complete a 		game, win or lose.
+	
+	Restart Game: This will obviously restart the game
+
+	Exit Game: This will exit the game and close the window
+
+Game Board
+	GUI: Button that sits on top of a panel(Custom users controls)
+	Panel: displays the number of miens in the adjacent cells(or if it has a mine, the mine 	itself)
+	Button: disappears when clicked.
+
+Status Strip:
+	Sits on the bottom of the form, displays a timer showing how long in seconds the user 		has been playing a particular round
+	Time starts on the first button press
+ 
+
+
+
+
+Midterm will be on blackboard, length of class but can be taken at home, 
