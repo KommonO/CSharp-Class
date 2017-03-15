@@ -14,9 +14,11 @@ namespace Minesweeper
     {
         List<Button> buttons = new List<Button>();
         int nameIncrement = 0;
+        Gameboard gameboard = new Gameboard();
         public MineSweeperForm()
         {
             InitializeComponent();
+            
         }
 
         private void statsMenuItem_Click(object sender, EventArgs e)
@@ -41,8 +43,8 @@ namespace Minesweeper
         private void Form1_Load(object sender, EventArgs e)
         {
             //When the form is loaded, create a new game, which will create a new board or round.
-            Game game = new Game();
-            Gameboard gameboard = new Gameboard();
+            //Game game = new Game();
+            //Gameboard gameboard = new Gameboard();
             //MessageBox.Show($"should be text : {Convert.ToString(gameboard.GetStatus(0,0))}");
         }
 
@@ -60,6 +62,12 @@ namespace Minesweeper
             //newButton.Click += new EventHandler(this.TileBtn_Click);
             //newButton.Name = 
             buttons.Add(newButton);
+            //This anchors the button to fill the entire panel slot
+            newButton.Dock = (DockStyle.Fill);
+            
+            //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+
+            newButton.Click += TileBtn_Click;
             tableLayoutPanel1.Controls.Add(newButton);
 
             
@@ -69,11 +77,44 @@ namespace Minesweeper
             //newButton.Click += new EventHandler(this.TileBtn_Click);
             
         }
+        private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+
+            Graphics g = e.Graphics;
+            //e.Graphics.FillRectangle(new SolidBrush(Color.Black), e.CellBounds);
+            
+        }
         void TileBtn_Click(Object sender, EventArgs e)
         {
-            //MessageBox.Show("Tilebtn_Clc");
-            Point point = (Point)sender;
-            label1.Text = $"{point}";
+            var cursorPosition = tableLayoutPanel1.PointToClient(Cursor.Position);
+            label1.Text = cursorPosition.ToString();
+            //label1.Text = Convert.ToString(GetChildAtPoint(cursorPosition));
+            //label2.Text = $"Button.Left = {button.Left}";
+
+            //foreach (Button button in tableLayoutPanel1.Controls)
+            foreach (Button button in buttons)
+            {
+                //button.Visible = true;
+                if (button.Bounds.Contains(cursorPosition))
+                {
+                    label2.Text = "Found";
+                    label3.Text = $"{buttons.IndexOf(button)}";
+                    int tempIndex = buttons.IndexOf(button);
+                    //button.Visible = false;
+                    //tableLayoutPanel1.Controls.RemoveAt(tempIndex);
+                    label4.Text = gameboard.Click(tempIndex);
+                }
+                else
+                {
+                    //button.Visible = true;
+                }
+            }
+            //GetChildAtPoint(cursorPosition).Visible = false;
+            
+           
+            //Send Coordinates to the Game
+            //Gameboard.SelectTile();//Need To Create method
+
 
             //Button clickedButton = (Button)sender;
 

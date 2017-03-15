@@ -58,8 +58,13 @@ namespace Minesweeper
                     }
                 }
             }
-
-
+        }
+        //this is the method that handles when an Item is clicked.
+        public string Click(int index)
+        {
+            //MessageBox.Show($"Box Clicked = {index + 1}");
+            string message = $"Box Clicked = {index + 1}";
+            return message;
         }
         public int GetStatus(int x, int y)
         {
