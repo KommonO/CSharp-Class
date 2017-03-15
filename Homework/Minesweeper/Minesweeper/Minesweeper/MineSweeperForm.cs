@@ -13,6 +13,7 @@ namespace Minesweeper
     public partial class MineSweeperForm : Form
     {
         List<Button> buttons = new List<Button>();
+        int nameIncrement = 0;
         public MineSweeperForm()
         {
             InitializeComponent();
@@ -56,7 +57,8 @@ namespace Minesweeper
             
             //int newNumber = int.Parse(i.ToString() + base.ToString());
             Button newButton = new Button();
-            newButton.Click += new EventHandler(this.TileBtn_Click);
+            //newButton.Click += new EventHandler(this.TileBtn_Click);
+            //newButton.Name = 
             buttons.Add(newButton);
             tableLayoutPanel1.Controls.Add(newButton);
 
@@ -70,8 +72,12 @@ namespace Minesweeper
         void TileBtn_Click(Object sender, EventArgs e)
         {
             //MessageBox.Show("Tilebtn_Clc");
-            Button clickedButton = (Button)sender;
-            clickedButton.Visible = false;
+            Point point = (Point)sender;
+            label1.Text = $"{point}";
+
+            //Button clickedButton = (Button)sender;
+
+            //clickedButton.Visible = false;
         }
 
        
