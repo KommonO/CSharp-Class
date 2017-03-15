@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    class Gameboard
+    class Game
     {
-        //Gameboard Properties
-        public Gameboard()
-        {
-            
-        }
+        //Game properties
     }
 }
