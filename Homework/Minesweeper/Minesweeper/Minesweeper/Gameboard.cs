@@ -60,11 +60,18 @@ namespace Minesweeper
             }
         }
         //this is the method that handles when an Item is clicked.
-        public string Click(int index)
+        public int Click(int index)
         {
+            int status = -1;
+            //int boxClicked = index + 1;
+            //int x = boxClicked / 10;
+            int x = index / 10;
+            int y = index % 10;
+            status = GetStatus(x, y);
             //MessageBox.Show($"Box Clicked = {index + 1}");
             string message = $"Box Clicked = {index + 1}";
-            return message;
+            //MessageBox.Show($"{index+1}");
+            return status;
         }
         public int GetStatus(int x, int y)
         {

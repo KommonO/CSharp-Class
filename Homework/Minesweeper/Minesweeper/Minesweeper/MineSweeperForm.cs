@@ -15,9 +15,15 @@ namespace Minesweeper
         List<Button> buttons = new List<Button>();
         int nameIncrement = 0;
         Gameboard gameboard = new Gameboard();
+        int paintCount = 0;
         public MineSweeperForm()
         {
             InitializeComponent();
+            for(int i = 0; i < 100; i++)
+            {
+                Button newButton = new Button();
+                buttons.Add(newButton);
+            }
             
         }
 
@@ -55,26 +61,32 @@ namespace Minesweeper
 
             //MessageBox.Show($"{this.Controls.Count}");
 
-            //recursive for loop, concatenate the two, I and J, and set that button to dissappear in the list. 
-            
             //int newNumber = int.Parse(i.ToString() + base.ToString());
-            Button newButton = new Button();
-            //newButton.Click += new EventHandler(this.TileBtn_Click);
-            //newButton.Name = 
-            buttons.Add(newButton);
-            //This anchors the button to fill the entire panel slot
-            newButton.Dock = (DockStyle.Fill);
-            
-            //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+            //Button newButton = new Button();
+            //buttons.Add(newButton);
+            if (paintCount != 100)
+            {
+                Button button = buttons.ElementAt(paintCount);
+                    //This anchors the button to fill the entire panel slot
+                    button.Dock = (DockStyle.Fill);
+                    //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
 
-            newButton.Click += TileBtn_Click;
-            tableLayoutPanel1.Controls.Add(newButton);
+                    button.Click += TileBtn_Click;
+                    //newButton.Click += new EventHandler(this.TileBtn_Click);
+                    tableLayoutPanel1.Controls.Add(button);
 
-            
-            
+       
+            }
+            else
+            {
+                paintCount = 0;
+                //MessageBox.Show("Overload");
+            }
+
+
             //MessageBox.Show($"new button added");
-            
-            //newButton.Click += new EventHandler(this.TileBtn_Click);
+
+            paintCount++;
             
         }
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -88,13 +100,10 @@ namespace Minesweeper
         {
             var cursorPosition = tableLayoutPanel1.PointToClient(Cursor.Position);
             label1.Text = cursorPosition.ToString();
-            //label1.Text = Convert.ToString(GetChildAtPoint(cursorPosition));
-            //label2.Text = $"Button.Left = {button.Left}";
-
-            //foreach (Button button in tableLayoutPanel1.Controls)
             foreach (Button button in buttons)
             {
                 //button.Visible = true;
+                //If the spot clicked is within bounds of the button, do this
                 if (button.Bounds.Contains(cursorPosition))
                 {
                     label2.Text = "Found";
@@ -102,7 +111,9 @@ namespace Minesweeper
                     int tempIndex = buttons.IndexOf(button);
                     //button.Visible = false;
                     //tableLayoutPanel1.Controls.RemoveAt(tempIndex);
-                    label4.Text = gameboard.Click(tempIndex);
+                    label4.Text = Convert.ToString(gameboard.Click(tempIndex));
+                    ChangeButton(tempIndex,Convert.ToInt32(label4.Text));
+                    //button.Visible = false;
                 }
                 else
                 {
@@ -119,6 +130,23 @@ namespace Minesweeper
             //Button clickedButton = (Button)sender;
 
             //clickedButton.Visible = false;
+        }
+
+        //Method to change the visibilty of the button.
+        int ChangeButton(int index, int status)
+        {
+            foreach (Button button in buttons)
+            {
+                if (buttons.IndexOf(button) == index)
+                {
+                    if (status == 0)
+                    {
+                        button.Visible = false;
+                    }
+                    return 0;
+                }
+            }
+            return 1;
         }
 
        
