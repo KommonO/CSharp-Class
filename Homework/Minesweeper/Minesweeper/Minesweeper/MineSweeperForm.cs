@@ -64,31 +64,54 @@ namespace Minesweeper
             //int newNumber = int.Parse(i.ToString() + base.ToString());
             //Button newButton = new Button();
             //buttons.Add(newButton);
-            if (paintCount != 100)
+            if(paintCount < 100)
             {
                 Button button = buttons.ElementAt(paintCount);
-                    //This anchors the button to fill the entire panel slot
-                    button.Dock = (DockStyle.Fill);
-                    //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
-
-                    button.Click += TileBtn_Click;
-                    //newButton.Click += new EventHandler(this.TileBtn_Click);
-                    tableLayoutPanel1.Controls.Add(button);
-
-       
+                //This anchors the button to fill the entire panel slot
+                button.Dock = (DockStyle.Fill);
+                //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+                //button.Visible = visibleStatus;
+                button.Click += TileBtn_Click;
+                //newButton.Click += new EventHandler(this.TileBtn_Click);
+                tableLayoutPanel1.Controls.Add(button);
+                //label4.Text = Convert.ToString(paintCount);
             }
             else
             {
-                paintCount = 0;
-                //MessageBox.Show("Overload");
+                //paintCount = 0;
+                //buttons.Clear();
+                
             }
-
-
-            //MessageBox.Show($"new button added");
-
             paintCount++;
-            
-        }
+
+
+        //    bool visibleStatus = true;
+        //    if (paintCount != 100)
+        //    {
+        //        label4.Text = Convert.ToString(paintCount);
+        //        Button button = buttons.ElementAt(paintCount);
+        //            //This anchors the button to fill the entire panel slot
+        //            button.Dock = (DockStyle.Fill);
+        //        //newButton.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
+        //        //button.Visible = visibleStatus;
+        //            button.Click += TileBtn_Click;
+        //            //newButton.Click += new EventHandler(this.TileBtn_Click);
+        //            tableLayoutPanel1.Controls.Add(button);
+
+        //}
+        //    else
+        //    {
+        //        paintCount = 0;
+        //        buttons.Clear();
+        //        //MessageBox.Show("Overload");
+        //    }
+
+
+        //    //MessageBox.Show($"new button added");
+
+        //    paintCount++;
+
+}
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
 
@@ -108,11 +131,14 @@ namespace Minesweeper
                 {
                     label2.Text = "Found";
                     label3.Text = $"{buttons.IndexOf(button)}";
+                    label4.Text = $"{Convert.ToInt32(label3.Text) + 1}";
                     int tempIndex = buttons.IndexOf(button);
                     //button.Visible = false;
                     //tableLayoutPanel1.Controls.RemoveAt(tempIndex);
-                    label4.Text = Convert.ToString(gameboard.Click(tempIndex));
-                    ChangeButton(tempIndex,Convert.ToInt32(label4.Text));
+                    //label4.Text = Convert.ToString($"{tempIndex}");
+                    //label4.Text = Convert.ToString(gameboard.Click(tempIndex));
+                    //ChangeButton(tempIndex,Convert.ToInt32(gameboard.Click(tempIndex)));
+                    
                     //button.Visible = false;
                 }
                 else
@@ -149,6 +175,6 @@ namespace Minesweeper
             return 1;
         }
 
-       
+
     }
 }
