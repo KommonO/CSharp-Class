@@ -8,3 +8,4 @@ C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\Ope
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.exe
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.pdb
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Stats.resources
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Character.resources
