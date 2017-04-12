@@ -1,0 +1,10 @@
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.exe.config
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.exe
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.csprojResolveAssemblyReference.cache
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Form1.resources
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Properties.Resources.resources
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.csproj.GenerateResource.Cache
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.exe
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Stats.resources
