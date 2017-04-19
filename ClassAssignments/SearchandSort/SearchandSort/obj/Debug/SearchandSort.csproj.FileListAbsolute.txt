@@ -1,0 +1,12 @@
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe.config
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\bin\Debug\SearchandSort.pdb
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\obj\Debug\SearchandSort.csprojResolveAssemblyReference.cache
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\obj\Debug\SearchandSort.exe
+c:\users\kommon.kommontemp-pc\documents\visual studio 2015\Projects\SearchandSort\SearchandSort\obj\Debug\SearchandSort.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe.config
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\obj\Debug\SearchandSort.exe
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\obj\Debug\SearchandSort.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\bin\Debug\SearchandSort.exe
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\bin\Debug\SearchandSort.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\ClassAssignments\SearchandSort\SearchandSort\obj\Debug\SearchandSort.csprojResolveAssemblyReference.cache
