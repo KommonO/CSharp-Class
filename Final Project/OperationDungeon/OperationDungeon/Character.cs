@@ -13,6 +13,8 @@ namespace OperationDungeon
     public partial class Character : UserControl
     {
         private string name;
+        public int speed;
+        public int health;
         
         public Character()
         {
@@ -22,9 +24,13 @@ namespace OperationDungeon
         {
             InitializeComponent();
             this.CharacterName = name;
+            this.Speed = 0;
+            this.healthBar.Maximum = 100;
+            this.Health = 100;
+            
         }
         
-        public string CharacterName
+        public virtual string CharacterName
         {
             set
             {
@@ -34,6 +40,31 @@ namespace OperationDungeon
             get
             {
                 return name;
+            }
+        }
+        public int Speed
+        {
+            set
+            {
+                speed = value;
+                Console.WriteLine($"Setting speed to: {speed}");
+
+            }
+            get
+            {
+                return speed;
+            }
+        }
+        public virtual int Health
+        {
+            set
+            {
+                health = value;
+                healthBar.Value = value;
+            }
+            get
+            {
+                return health;
             }
         }
 
@@ -47,6 +78,11 @@ namespace OperationDungeon
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
         {
 
         }

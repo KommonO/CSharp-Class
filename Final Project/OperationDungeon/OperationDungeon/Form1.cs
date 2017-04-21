@@ -12,14 +12,9 @@ namespace OperationDungeon
 {
     public partial class Form1 : Form
     {
-        //Character Hero1 = new Character();
-        //Character Hero2 = new Character();
-        //Character Hero3 = new Character();
-        //Character Enemy1 = new Character();
-        //Character Enemy2 = new Character();
-        //Character Enemy3 = new Character();
+        
         Character[,] grid = new Character[2, 3];
-
+        Character[] playerTurnQueue = new Character[6];
 
         public Form1()
         {
@@ -31,44 +26,59 @@ namespace OperationDungeon
         
         private void LoadCharacters()
         { 
-            //for (int i = 0; i < grid.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < grid.GetLength(1); j++)
-            //    {
+            /*
+             * 
+             *This needs to be Automated based on user inputs at the beginning
+             * -Have user enter information, hero: name, location, type(Although they only get 1 of each)
+             *  
+             *When Enemies are generated
+             *  -Either have them spawn based off of random numbers or have it based on number of levels completed
+             *  - 
+             * 
+             * 
+             */
 
-            //        //grid[i, j] = new Character();
-            //        ////add 30 so that it will not interfere with the menustrip
-            //        //grid[i, j].Location = new Point(i * 50, j * 50 + 30); //* 50 because of size of the cells
-            //        //grid[i, j].Position = new Point(i, j);
-            //        //grid[i, j].CellClick += new EventHandler(ClearAdjacent);
-            //        //this.Controls.Add(grid[i, j]);
-            //        grid[i,j] = 
-
-            //    }
-            //}
+            /****add a switch case statement, return an array from creating a game of characters to be placed, should return in order of placement***/
+            //Create Hero 1
             grid[0, 0] = new Warrior("WarriorKommon");
             grid[0, 0].Location = new Point(100, 50);
             this.Controls.Add(grid[0, 0]);
 
-            grid[0, 1] = new Character("WarriorKommon");
+            //Create Hero 2
+            grid[0, 1] = new Character("CharacterKommon");
             grid[0, 1].Location = new Point(100, 175);
             this.Controls.Add(grid[0, 1]);
 
-            grid[0, 2] = new Character("WarriorKommon");
+            //Create Hero 3
+            grid[0, 2] = new Character("CharacterKommon");
             grid[0, 2].Location = new Point(100, 300);
             this.Controls.Add(grid[0, 2]);
 
+            //Create Enemy 1
             grid[1, 0] = new Bandit("BanditKommon");
             grid[1, 0].Location = new Point(550, 50);
             this.Controls.Add(grid[1, 0]);
 
-            grid[1, 1] = new Character("WarriorKommon");
+            //Create Enemy 2
+            grid[1, 1] = new Character("CharacterKommon");
             grid[1, 1].Location = new Point(550, 175);
             this.Controls.Add(grid[1, 1]);
 
-            grid[1, 2] = new Character("WarriorKommon");
+            //Create Enemy 3
+            grid[1, 2] = new Character("CharacterKommon");
             grid[1, 2].Location = new Point(550, 300);
             this.Controls.Add(grid[1, 2]);
+            /*
+             * 
+             * 
+             * Debugging Purposes, Console Print out of various characters to check override methods/properties
+             * 
+             * 
+             * 
+             * 
+             */
+            Console.WriteLine($"Warrior Speed = : {grid[0,0].Speed} Should be 2");
+            Console.WriteLine($"Character Speed = : {grid[0, 1].Speed} Should be 0");
 
 
 
@@ -92,7 +102,7 @@ namespace OperationDungeon
 
         private void character_load(object sender, EventArgs e)
         {
-            this.Text = this.Name; 
+           //can omit
         }
     }
 }
