@@ -1,0 +1,5 @@
+Average number of iterations = 5227 for Cocktail sort, Largest seen average ~6227
+
+Best starting number for the Lowest cost (On Average) is number 8.
+
+Best starting number for the least number of guesses, ~28

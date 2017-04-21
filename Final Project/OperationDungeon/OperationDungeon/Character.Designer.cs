@@ -35,11 +35,13 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(75, 75);
+            this.panel1.Size = new System.Drawing.Size(79, 111);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
@@ -49,6 +51,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Character";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Character
             // 
@@ -56,7 +59,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "Character";
-            this.Size = new System.Drawing.Size(75, 75);
+            this.Size = new System.Drawing.Size(79, 111);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

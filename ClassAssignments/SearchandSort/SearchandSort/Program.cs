@@ -299,7 +299,7 @@ namespace SearchandSort
             int averageIterations = 5;
             int averageCostMinIndex = 0;
             int[] minimumGuessArray = new int[100];
-            System.IO.File.Delete(@"MinimumGuessAverage.txt");
+            System.IO.File.Delete(@"GuessAverage.txt");
             for (int c = 1; c < 101; c++)
             {
                 int guess = c;
@@ -319,7 +319,7 @@ namespace SearchandSort
                 Console.WriteLine("minimum number of Guesses = " + minimumGuessArray.Min() + "at start number:" + averageCostMinIndex);
                 Console.WriteLine($"Average number of guesses for {c} = {minimumGuessArray[c - 1]}");
 
-                System.IO.File.AppendAllText(@"MinimumGuessAverage.txt", $"Average minimum number of guesses {c} = {minimumGuessArray[c - 1]}\n");
+                System.IO.File.AppendAllText(@"GuessAverage.txt", $"Average number of guesses for {c} = {minimumGuessArray[c - 1]}\n");
             }
             return averageCostMinIndex;
         }
@@ -337,7 +337,7 @@ namespace SearchandSort
             //Average Cost: Finds the average Cost in the search algorithm
             Console.WriteLine("Part 1 Complete. Press Enter to continue onto part 2.");
             Console.ReadLine();
-            Console.WriteLine("On average, the starting number with the smallest cost is:" + AverageMinimumCost());
+            //Console.WriteLine("On average, the starting number with the smallest cost is:" + AverageMinimumCost());
             Console.WriteLine("Start number with minimum number of Guesses " + MinimumGuess());
             Console.WriteLine("Finished");
             
