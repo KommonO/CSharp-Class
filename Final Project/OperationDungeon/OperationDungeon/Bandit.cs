@@ -47,6 +47,19 @@ namespace OperationDungeon
                 return health;
             }
         }
+        public int Attack(int strength, int intelligence)
+        {
+            //This will be the Attack method for the specific character, overriden based off character
+
+
+            return 0;
+        }
+        public int Defense()
+        {
+            //This is the method that will receive the attacks and adjust the damage according to the character.
+
+            return 0;
+        }
 
         protected override void button1_Click(object sender, EventArgs e)
         {

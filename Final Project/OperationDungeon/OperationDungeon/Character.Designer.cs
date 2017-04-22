@@ -38,7 +38,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.healthBar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.healthLabel);
@@ -55,7 +55,6 @@
             this.healthBar.Name = "healthBar";
             this.healthBar.Size = new System.Drawing.Size(71, 10);
             this.healthBar.TabIndex = 3;
-            //this.healthBar.ForeColor = System.Drawing.Color.Red;
             this.healthBar.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // label1

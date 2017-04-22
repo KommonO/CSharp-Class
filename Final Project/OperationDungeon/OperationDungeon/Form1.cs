@@ -14,6 +14,7 @@ namespace OperationDungeon
     {
         
         Character[,] grid = new Character[2, 3];
+        //Will hold the order of players to be played, may need to decrease the number of turnsLeft for each
         Character[] playerTurnQueue = new Character[6];
 
         public Form1()
@@ -45,29 +46,29 @@ namespace OperationDungeon
             this.Controls.Add(grid[0, 0]);
 
             //Create Hero 2
-            grid[0, 1] = new Character("CharacterKommon");
-            grid[0, 1].Location = new Point(100, 175);
-            this.Controls.Add(grid[0, 1]);
+            //grid[0, 1] = new Character("CharacterKommon");
+            //grid[0, 1].Location = new Point(100, 175);
+            //this.Controls.Add(grid[0, 1]);
 
-            //Create Hero 3
-            grid[0, 2] = new Character("CharacterKommon");
-            grid[0, 2].Location = new Point(100, 300);
-            this.Controls.Add(grid[0, 2]);
+            ////Create Hero 3
+            //grid[0, 2] = new Character("CharacterKommon");
+            //grid[0, 2].Location = new Point(100, 300);
+            //this.Controls.Add(grid[0, 2]);
 
             //Create Enemy 1
             grid[1, 0] = new Bandit("BanditKommon");
             grid[1, 0].Location = new Point(550, 50);
             this.Controls.Add(grid[1, 0]);
 
-            //Create Enemy 2
-            grid[1, 1] = new Character("CharacterKommon");
-            grid[1, 1].Location = new Point(550, 175);
-            this.Controls.Add(grid[1, 1]);
+            ////Create Enemy 2
+            //grid[1, 1] = new Character("CharacterKommon");
+            //grid[1, 1].Location = new Point(550, 175);
+            //this.Controls.Add(grid[1, 1]);
 
-            //Create Enemy 3
-            grid[1, 2] = new Character("CharacterKommon");
-            grid[1, 2].Location = new Point(550, 300);
-            this.Controls.Add(grid[1, 2]);
+            ////Create Enemy 3
+            //grid[1, 2] = new Character("CharacterKommon");
+            //grid[1, 2].Location = new Point(550, 300);
+            //this.Controls.Add(grid[1, 2]);
             /*
              * 
              * 
@@ -77,12 +78,14 @@ namespace OperationDungeon
              * 
              * 
              */
+            Game game = new OperationDungeon.Game(grid);
             Console.WriteLine($"Warrior Speed = : {grid[0,0].Speed} Should be 2");
             Console.WriteLine($"Character Speed = : {grid[0, 1].Speed} Should be 0");
 
 
 
         }
+        
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Close the Form/Game if the Exit button is clicked
@@ -97,6 +100,7 @@ namespace OperationDungeon
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Game game = new OperationDungeon.Game();
             LoadCharacters();
         }
 
