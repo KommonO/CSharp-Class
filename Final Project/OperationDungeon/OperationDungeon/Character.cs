@@ -15,7 +15,10 @@ namespace OperationDungeon
         private string name;
         public int speed;
         public int health;
-        
+        private int turnCount;
+        bool flag = false;
+        public event EventHandler CharacterClick;
+
         public Character()
         {
             InitializeComponent();
@@ -40,6 +43,30 @@ namespace OperationDungeon
             get
             {
                 return name;
+            }
+        }
+        public virtual int TurnCount
+        {
+            set
+            {
+                turnCount = value;
+                Console.WriteLine($"setting turnCount to: {turnCount}");
+            }
+            get
+            {
+                return turnCount;
+            }
+        }
+        public bool Flag
+        {
+            set
+            {
+                flag = value;
+                Console.WriteLine($"setting flag to: {flag}");
+            }
+            get
+            {
+                return flag;
             }
         }
         public int Speed
@@ -68,10 +95,17 @@ namespace OperationDungeon
             }
         }
 
-        protected virtual void button1_Click(object sender, EventArgs e)
+        //protected virtual void button1_Click(object sender, EventArgs e)
+        protected void button1_Click(object sender, EventArgs e)
         {
             //Character s = (Character)sender;
-            Console.WriteLine($"Character Clicked: {name} and {name}");
+            Console.WriteLine("Button clicked");
+            //button1.Visible = false;
+
+            if (this.CharacterClick != null)
+            {
+                this.CharacterClick(this, e);
+            }
             //Console.WriteLine($"Character sender Clicked: {s.Name} and {s.name}");
 
 

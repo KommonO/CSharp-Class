@@ -10,6 +10,7 @@ namespace OperationDungeon
     class Warrior : Hero
     {
         private string name;
+        private int turnCount;
         public Warrior()
         {
 
@@ -22,9 +23,22 @@ namespace OperationDungeon
             //this.healthBar.Style = ProgressBarStyle.Blocks;
             this.Health = 25;
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
+            this.TurnCount = Speed;
             
             //Somehow print the sprite of the character on the button 
             //this.healthBar.Value = 100;
+        }
+        public override int TurnCount
+        {
+            set
+            {
+                turnCount = value;
+                Console.WriteLine($"setting turnCount to: {turnCount}");
+            }
+            get
+            {
+                return turnCount;
+            }
         }
         public override string CharacterName
         {
@@ -43,8 +57,15 @@ namespace OperationDungeon
             set
             {
                 health = value;
-                healthBar.Value = value;
-                
+                try
+                {
+                    healthBar.Value = value;
+                }
+                catch
+                {
+                    //Character has died
+                    this.Visible = false;
+                }
             }
             get
             {
@@ -66,14 +87,15 @@ namespace OperationDungeon
         private void Defense(int strength, int intelligence)
         {
             //alters the health bar of self
+            this.Health = this.Health - (strength + intelligence);
         }
-        protected override void button1_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("derived");
-            MessageBox.Show("Warrior Clicked");
-            Console.WriteLine("Warrior Clicked");
+        //protected override void button1_Click(object sender, EventArgs e)
+        //{
+        //    //MessageBox.Show("derived");
+        //    MessageBox.Show("Warrior Clicked");
+        //    Console.WriteLine("Warrior Clicked");
 
-            Attack();
-        }
+        //    Defense(5,5);
+        //}
     }
 }

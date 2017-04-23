@@ -1,0 +1,8 @@
+C# Notes and To Do
+
+- After a player is created, it is added to the player queue, then at the beginning of the game and after each turn(Possibly a do while statemen) need to adjust the playerQueue based on speed and priority ordering. 
+- Attack and Defense Methods need to be defined better
+	- Only one needs to receive parameters
+	- The others will need to return parameters
+	- Attack should return an array of intelligence and strength
+	- Defense should read in intelligence and strength of attack to adjust health 	bar
