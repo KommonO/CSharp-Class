@@ -69,7 +69,7 @@ namespace OperationDungeon
                 return flag;
             }
         }
-        public int Speed
+        public virtual int Speed
         {
             set
             {
@@ -117,8 +117,8 @@ namespace OperationDungeon
         }
         public virtual void Defense(int strength, int intelligence)
         {
-            
-            
+            this.Health = this.Health - (strength + intelligence);
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

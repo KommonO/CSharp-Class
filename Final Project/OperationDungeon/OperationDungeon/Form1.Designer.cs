@@ -41,7 +41,7 @@
             this.attackBtn = new System.Windows.Forms.Button();
             this.defenseBtn = new System.Windows.Forms.Button();
             this.skillBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.eventTextbox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,13 +150,13 @@
             this.skillBtn.Text = "Skill";
             this.skillBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // eventTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 507);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(708, 98);
-            this.textBox1.TabIndex = 5;
+            this.eventTextbox.Location = new System.Drawing.Point(13, 507);
+            this.eventTextbox.Multiline = true;
+            this.eventTextbox.Name = "eventTextbox";
+            this.eventTextbox.Size = new System.Drawing.Size(708, 98);
+            this.eventTextbox.TabIndex = 5;
             // 
             // Form1
             // 
@@ -164,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::OperationDungeon.Properties.Resources.Dungeon1;
             this.ClientSize = new System.Drawing.Size(748, 617);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.eventTextbox);
             this.Controls.Add(this.skillBtn);
             this.Controls.Add(this.defenseBtn);
             this.Controls.Add(this.attackBtn);
@@ -189,7 +189,7 @@
         private System.Windows.Forms.Button attackBtn;
         private System.Windows.Forms.Button defenseBtn;
         private System.Windows.Forms.Button skillBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox eventTextbox;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem instructionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

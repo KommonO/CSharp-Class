@@ -105,10 +105,57 @@ namespace OperationDungeon
         public void AttackCharacter(object sender, EventArgs e)
         {
             Character c = (Character)sender;
-            c.Health = c.Health - 20;
-            int[] tempAttack = playerTurnQueue[0].Attack();
+            //c.Health = c.Health - 20;
+            int temp = 100;
+            Character tempCharacter = new Character();
+            //find the next player in the queue, or lowest turnCount left
+            Console.WriteLine($"Before the for loop Count = {characterList.Count()}");
+            Console.WriteLine($"Before the for characterList at index 0 = {characterList[0].CharacterName}");
+            Console.WriteLine($"Before the for characterList at index 1 = {characterList[1].CharacterName}");
+            
+            for (int s = 0; s < characterList.Count(); s++)
+            {
+                Console.WriteLine("for loop entered");
+                //search the list for the lowest turnCount
+                if (characterList[s].TurnCount < temp)
+                {
+                    Console.WriteLine("for loop if entered");
+                    temp = characterList[s].TurnCount;
+                    tempCharacter = characterList[s];
+                }
+            }
+            Console.WriteLine($"Next in line is {tempCharacter.CharacterName} with the lowest turnCount of {tempCharacter.TurnCount}");
+
+            //Now we attack the player that has been clicked with the Attack stats of the character with the lowest turnCount
+            int[] tempAttack = tempCharacter.Attack();
             int tempStrength = tempAttack[0];
             int tempIntelligence = tempAttack[1];
+            c.Defense(tempStrength, tempIntelligence);
+            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {tempCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} \n");
+            
+
+
+            //Decide if its either a hero or enemy
+            string tempBase = Convert.ToString(c.GetType().BaseType);
+            Console.WriteLine($"Attack Ran. character {c.CharacterName} is of type {tempBase}");
+            tempBase = tempBase.Split('.')[1];
+            Console.WriteLine($"tempBase after split = {tempBase}");
+            //end hero/enemy check
+
+
+            for (int t = 0; t < characterList.Count(); t++)
+            {
+               if(tempCharacter == characterList[t])
+                {
+                    characterList[t].TurnCount = tempCharacter.Speed;
+                }
+                else
+                {
+                    characterList[t].TurnCount--;
+                }
+            }
+            
+
             //This will be where we print to the text box that someone has been hit and attack someone based off of health
             //c.
         }

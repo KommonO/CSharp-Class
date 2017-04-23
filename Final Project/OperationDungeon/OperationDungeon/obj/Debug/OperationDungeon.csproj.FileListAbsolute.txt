@@ -9,3 +9,14 @@ C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\Ope
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.pdb
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Stats.resources
 C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Character.resources
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.exe.config
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.exe
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.pdb
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.csprojResolveAssemblyReference.cache
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Character.resources
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Form1.resources
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Properties.Resources.resources
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.Stats.resources
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.csproj.GenerateResource.Cache
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.exe
+C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.pdb
