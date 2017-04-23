@@ -106,6 +106,11 @@ namespace OperationDungeon
         {
             Character c = (Character)sender;
             c.Health = c.Health - 20;
+            int[] tempAttack = playerTurnQueue[0].Attack();
+            int tempStrength = tempAttack[0];
+            int tempIntelligence = tempAttack[1];
+            //This will be where we print to the text box that someone has been hit and attack someone based off of health
+            //c.
         }
         public void StartGame()
         {

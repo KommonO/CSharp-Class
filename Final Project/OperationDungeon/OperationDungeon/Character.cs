@@ -110,6 +110,16 @@ namespace OperationDungeon
 
 
         }
+        public virtual int[] Attack()
+        {
+            int[] attackArray = new int[2];
+            return attackArray;
+        }
+        public virtual void Defense(int strength, int intelligence)
+        {
+            
+            
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

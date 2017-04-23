@@ -73,7 +73,7 @@ namespace OperationDungeon
             }
         }
 
-        private int[] Attack()
+        public override int[] Attack()
         {
             //method to determine attack based on Strength(Physical strength) and Intelligence(Magical Strength)
             //alters the health bar of others
@@ -84,7 +84,7 @@ namespace OperationDungeon
             return attackArray;
 
         }
-        private void Defense(int strength, int intelligence)
+        public override void Defense(int strength, int intelligence)
         {
             //alters the health bar of self
             this.Health = this.Health - (strength + intelligence);

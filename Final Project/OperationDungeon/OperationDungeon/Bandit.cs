@@ -55,18 +55,21 @@ namespace OperationDungeon
                 return health;
             }
         }
-        public int Attack(int strength, int intelligence)
+        public override int[] Attack()
         {
             //This will be the Attack method for the specific character, overriden based off character
+            int[] tempArray = new int[2];
+            
+
+            return tempArray;
 
 
-            return 0;
         }
-        public int Defense()
+        public override void Defense(int strength, int intelligence)
         {
             //This is the method that will receive the attacks and adjust the damage according to the character.
 
-            return 0;
+            
         }
 
         //protected override void button1_Click(object sender, EventArgs e)
