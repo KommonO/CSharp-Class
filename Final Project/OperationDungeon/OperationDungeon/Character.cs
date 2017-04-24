@@ -143,5 +143,15 @@ namespace OperationDungeon
         {
 
         }
+
+        private void panel1_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

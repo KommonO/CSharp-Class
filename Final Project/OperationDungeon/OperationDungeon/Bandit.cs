@@ -14,6 +14,8 @@ namespace OperationDungeon
         private int turnCount;
         public int speed;
         bool isDead = false;
+        int intelligence;
+        int strength;
         public Bandit()
         {
 
@@ -25,6 +27,8 @@ namespace OperationDungeon
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");
             this.TurnCount = Speed;
+            this.intelligence = 0;
+            this.strength = 15;
             Console.WriteLine($"initial speed for {name} = {Speed}");
             Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
 
@@ -79,7 +83,7 @@ namespace OperationDungeon
         public override int[] Attack()
         {
             //This will be the Attack method for the specific character, overriden based off character
-            int[] tempArray = new int[2] { 51,50};
+            int[] tempArray = new int[2] { strength,intelligence};
             
 
             return tempArray;

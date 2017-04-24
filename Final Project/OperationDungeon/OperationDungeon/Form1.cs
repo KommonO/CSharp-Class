@@ -59,7 +59,7 @@ namespace OperationDungeon
             grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[0, 1]);
 
-            ////Create Hero 3
+            //Create Hero 3
             grid[0, 2] = new Mage("Mage3");
             grid[0, 2].Location = new Point(100, 300);
             grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
@@ -71,28 +71,17 @@ namespace OperationDungeon
             grid[1, 0].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 0]);
 
-            ////Create Enemy 2
+            //Create Enemy 2
             grid[1, 1] = new Dragon("Dragon2");
             grid[1, 1].Location = new Point(550, 175);
             grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 1]);
 
-            ////Create Enemy 3
+            //Create Enemy 3
             grid[1, 2] = new Ogre("CharacterKommon");
             grid[1, 2].Location = new Point(550, 300);
             grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 2]);
-            /*
-             * 
-             * 
-             * Debugging Purposes, Console Print out of various characters to check override methods/properties
-             * 
-             * 
-             * 
-             * 
-             */
-            //Thread.Sleep(100000);
-            //Game game = new OperationDungeon.Game(grid);
 
             characterList?.Add(grid[0, 0]);
             characterList?.Add(grid[0, 1]);
@@ -153,6 +142,8 @@ namespace OperationDungeon
             }
             flag = true;
             tempCharacter.panel1.BackColor = Color.Red;
+            tempCharacter.chooseAttackComboBox.Visible = true;
+            tempCharacter.chooseAttackLabel.Visible = true;
             return tempCharacter;
         }
         public void CheckDeath(Character characterToLive)
@@ -191,7 +182,7 @@ namespace OperationDungeon
                                 eventTextbox.AppendText("Player has Lost the round");
                                 MessageBox.Show("You have lost the game! Thanks for playing! The Game will Close now.");
                                 this.Close();
-                            }
+                            } 
                         }
                         characterList.Remove(characterToLive);
                         eventTextbox.AppendText($"Heroes={numHeroes} Enemies={numEnemies} \n");
@@ -264,6 +255,8 @@ namespace OperationDungeon
             }
             //MessageBox.Show("Changing color back to normal"); 
             nextCharacter.panel1.BackColor = SystemColors.Control;
+            nextCharacter.chooseAttackComboBox.Visible = false;
+            nextCharacter.chooseAttackLabel.Visible = false;
             //MessageBox.Show($"Checking death of {c.CharacterName}");
             CheckDeath(c);
             nextCharacter = Next();

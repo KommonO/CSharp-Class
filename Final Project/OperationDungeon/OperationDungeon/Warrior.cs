@@ -29,8 +29,9 @@ namespace OperationDungeon
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
-            this.strength = 10;
+            this.strength = 20;
             Console.WriteLine($"initial speed for {name} = {Speed}");
+           
             Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
             //Somehow print the sprite of the character on the button 
             //this.healthBar.Value = 100;
