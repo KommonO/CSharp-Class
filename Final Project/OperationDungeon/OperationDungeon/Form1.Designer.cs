@@ -162,6 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackgroundImage = global::OperationDungeon.Properties.Resources.Dungeon1;
             this.ClientSize = new System.Drawing.Size(748, 617);
             this.Controls.Add(this.eventTextbox);

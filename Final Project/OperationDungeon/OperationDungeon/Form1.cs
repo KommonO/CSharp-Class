@@ -17,6 +17,8 @@ namespace OperationDungeon
         //Will hold the order of players to be played, may need to decrease the number of turnsLeft for each
         Character[] playerTurnQueue = new Character[6];
         List<Character> characterList = new List<Character>();
+        Character nextCharacter;
+        bool flag = false;
         Game game;
 
         public Form1()
@@ -102,17 +104,20 @@ namespace OperationDungeon
 
 
         }
-        public void AttackCharacter(object sender, EventArgs e)
+
+        //Method responsible for choosing the next player in line
+        public Character Next()
         {
-            Character c = (Character)sender;
-            //c.Health = c.Health - 20;
+            //temporary variables used to find the next character
             int temp = 100;
             Character tempCharacter = new Character();
+
             //find the next player in the queue, or lowest turnCount left
             Console.WriteLine($"Before the for loop Count = {characterList.Count()}");
             Console.WriteLine($"Before the for characterList at index 0 = {characterList[0].CharacterName}");
             Console.WriteLine($"Before the for characterList at index 1 = {characterList[1].CharacterName}");
-            
+            //Find the character with the smallest turnCount
+
             for (int s = 0; s < characterList.Count(); s++)
             {
                 Console.WriteLine("for loop entered");
@@ -124,15 +129,29 @@ namespace OperationDungeon
                     tempCharacter = characterList[s];
                 }
             }
-            Console.WriteLine($"Next in line is {tempCharacter.CharacterName} with the lowest turnCount of {tempCharacter.TurnCount}");
+            flag = true;
+            tempCharacter.panel1.BackColor = Color.Red;
+            return tempCharacter;
+        }
+        public void AttackCharacter(object sender, EventArgs e)
+        {
+            Console.WriteLine("Attack Character Ran");
+            Character c = (Character)sender;
+            c.Health = c.Health - 20;
+            if (flag)
+            {
+                //flag is true, Next has been ran and the flag is set to true
+                flag = false;
+            }
+            else
+            {
+                nextCharacter = Next();
 
-            //Now we attack the player that has been clicked with the Attack stats of the character with the lowest turnCount
-            int[] tempAttack = tempCharacter.Attack();
-            int tempStrength = tempAttack[0];
-            int tempIntelligence = tempAttack[1];
-            c.Defense(tempStrength, tempIntelligence);
-            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {tempCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} \n");
-            
+            }
+            MessageBox.Show($"character attacking is: {nextCharacter.CharacterName}");
+            Console.WriteLine($"Next in line is {nextCharacter.CharacterName} with the lowest turnCount of {nextCharacter.TurnCount}");
+
+
 
 
             //Decide if its either a hero or enemy
@@ -141,23 +160,44 @@ namespace OperationDungeon
             tempBase = tempBase.Split('.')[1];
             Console.WriteLine($"tempBase after split = {tempBase}");
             //end hero/enemy check
+            string nextCharacterBase = Convert.ToString(nextCharacter.GetType().BaseType);
+            nextCharacterBase = nextCharacterBase.Split('.')[1];
+            MessageBox.Show($"tempBase: {tempBase} - nextCharacterBaese: {nextCharacterBase}");
+            if (tempBase != nextCharacterBase)
+            {
+                //If they are not on the same team, attack
+                MessageBox.Show("person clicked is not on the same team.");
+            }
+            else
+            {
+                MessageBox.Show("Sorry you cannot click someone that is on your team ");
+                flag = true;
+                //AttackCharacter(sender,e);
+                //nextCharacter = Next();
+                return;
+            }
 
-
+            //Now we attack the player that has been clicked with the Attack stats of the character with the lowest turnCount
+            int[] tempAttack = nextCharacter.Attack();
+            int tempStrength = tempAttack[0];
+            int tempIntelligence = tempAttack[1];
+            c.Defense(tempStrength, tempIntelligence);
+            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} \n");
+            //adjust the turn counts
             for (int t = 0; t < characterList.Count(); t++)
             {
-               if(tempCharacter == characterList[t])
+               if(nextCharacter == characterList[t])
                 {
-                    characterList[t].TurnCount = tempCharacter.Speed;
+                    characterList[t].TurnCount = nextCharacter.Speed;
                 }
                 else
                 {
                     characterList[t].TurnCount--;
                 }
             }
-            
-
-            //This will be where we print to the text box that someone has been hit and attack someone based off of health
-            //c.
+            MessageBox.Show("Changing color back to normal"); 
+            nextCharacter.panel1.BackColor = SystemColors.Control;
+            nextCharacter = Next();
         }
         public void StartGame()
         {
@@ -220,10 +260,12 @@ namespace OperationDungeon
         {
             //Game game = new OperationDungeon.Game();
             LoadCharacters();
+            nextCharacter = Next();
+            //nextCharacter = Next();
             //game = new OperationDungeon.Game(grid);
             //Console.WriteLine("Before starting game");
             //game.StartGame();
-           
+
         }
 
         private void character_load(object sender, EventArgs e)

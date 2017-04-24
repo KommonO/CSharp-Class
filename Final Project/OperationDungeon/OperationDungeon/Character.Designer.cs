@@ -101,7 +101,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label healthLabel;
         private System.Windows.Forms.Label label1;
