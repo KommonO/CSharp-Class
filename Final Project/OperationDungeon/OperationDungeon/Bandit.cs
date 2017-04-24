@@ -13,13 +13,14 @@ namespace OperationDungeon
         private string name;
         private int turnCount;
         public int speed;
+        bool isDead = false;
         public Bandit()
         {
 
         }
         public Bandit(string name)
         {
-            this.Speed = 1; //Default speed of Bandit
+            this.Speed = 3; //Default speed of Bandit
             this.CharacterName = name;
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");
@@ -55,6 +56,7 @@ namespace OperationDungeon
                 {
                     //Character has died
                     this.Visible = false;
+                    isDead = true;
                 }
             }
             get
@@ -62,10 +64,22 @@ namespace OperationDungeon
                 return health;
             }
         }
+        public override bool IsDead
+        {
+            set
+            {
+                isDead = value;
+                Console.WriteLine($"setting isDead for {name}to: {isDead}");
+            }
+            get
+            {
+                return isDead;
+            }
+        }
         public override int[] Attack()
         {
             //This will be the Attack method for the specific character, overriden based off character
-            int[] tempArray = new int[2] { 1,1};
+            int[] tempArray = new int[2] { 51,50};
             
 
             return tempArray;

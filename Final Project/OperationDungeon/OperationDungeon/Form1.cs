@@ -19,6 +19,7 @@ namespace OperationDungeon
         List<Character> characterList = new List<Character>();
         Character nextCharacter;
         bool flag = false;
+        int numEnemies = 0;
         Game game;
 
         public Form1()
@@ -101,7 +102,7 @@ namespace OperationDungeon
 
             //Line required to erase the empty items in the characterList
             characterList = characterList.Where(s => !string.IsNullOrWhiteSpace(Convert.ToString(s))).Distinct().ToList();
-            
+           
             Console.WriteLine($"Warrior Speed = : {grid[0,0].Speed} Should be 2");
             //Console.WriteLine($"Character Speed = : {grid[0, 1].Speed} Should be 0");
 
@@ -109,6 +110,19 @@ namespace OperationDungeon
 
         }
 
+        public void CheckNumEnemies(List<Character> checkList)
+        {
+            for(int q = 0; q < checkList.Count(); q++)
+            {
+                string tempCheck = checkList[q].GetType().BaseType.ToString();
+                tempCheck = tempCheck.Split('.')[1];
+                if (tempCheck == "Enemy")
+                {
+                    numEnemies++;
+                }
+            }
+            MessageBox.Show($"Number of enemies = {numEnemies}");
+        }
         //Method responsible for choosing the next player in line
         public Character Next()
         {
@@ -136,6 +150,37 @@ namespace OperationDungeon
             flag = true;
             tempCharacter.panel1.BackColor = Color.Red;
             return tempCharacter;
+        }
+        public void CheckDeath(Character characterToLive)
+        {
+            //characterList.Remove(characterToLive);
+            if (characterToLive.IsDead == true)
+            {
+                MessageBox.Show($"Character who died is {characterToLive.CharacterName}");
+                for (int i = 0; i < characterList.Count(); i++)
+                {
+                    if (characterList[i].CharacterName == characterToLive.CharacterName)
+                    {
+                        Console.WriteLine($"{characterList[i].CharacterName} = {characterToLive.CharacterName}");
+                        MessageBox.Show($"Character Erased. Count before{characterList.Count()}");
+                        if (characterToLive.GetType().BaseType.ToString() == "OperationDungeon.Enemy")
+                        {
+                            numEnemies--;
+                            //If statement to check if the game is over after killing the enemy. This will need to change to a point where it will happen whether
+                            //the character is an enemy or hero
+                            if (numEnemies == 0)
+                            {
+                                eventTextbox.AppendText("Player has completed the round");
+                                MessageBox.Show("Congrats on winning the game");
+                                this.Close();
+                            }
+
+                        }
+                        characterList.Remove(characterToLive);
+                        MessageBox.Show($"Character Erased. Count After{characterList.Count()}");
+                    }
+                }
+            }
         }
         public void AttackCharacter(object sender, EventArgs e)
         {
@@ -201,52 +246,11 @@ namespace OperationDungeon
             }
             MessageBox.Show("Changing color back to normal"); 
             nextCharacter.panel1.BackColor = SystemColors.Control;
+            MessageBox.Show($"Checking death of {c.CharacterName}");
+            CheckDeath(c);
             nextCharacter = Next();
         }
-        public void StartGame()
-        {
-            //TurnSort(characterList);
-            //play game
-            int temp = 100;
-            bool tempBool = false;
-            Character tempCharacter;
-            //MessageBox.Show("Testing");
-
-
-
-            while (true)
-            {
-                //Decide who's turn it is
-
-                for (int s = 0; s < characterList.Count(); s++)
-                {
-                    Console.WriteLine("for loop entered");
-                    //search the list for the lowest turnCount
-                    if (characterList[s].TurnCount < temp)
-                    {
-                        Console.WriteLine("for loop if entered");
-                        temp = characterList[s].TurnCount;
-                        tempCharacter = characterList[s];
-                    }
-                }
-
-
-                //wait until user clicks to attack
-                Console.WriteLine("Before !tempBool Loop");
-                while (!tempBool)
-                {
-                    //wait until an item is clicked
-                    for (int a = 0; a < characterList.Count(); a++)
-                    {
-                        tempBool = characterList[a].Flag;
-                    }
-                }
-                Console.WriteLine("After !tempBool Loop");
-
-                //possible a while which waited until the flag is set from a button being clicked. 
-
-            }
-        }
+       
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -262,24 +266,20 @@ namespace OperationDungeon
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Game game = new OperationDungeon.Game();
+
             LoadCharacters();
             nextCharacter = Next();
-            //nextCharacter = Next();
-            //game = new OperationDungeon.Game(grid);
-            //Console.WriteLine("Before starting game");
-            //game.StartGame();
-
+            CheckNumEnemies(characterList);
         }
 
         private void character_load(object sender, EventArgs e)
         {
-           //can omit
+
         }
 
         private void startGameButton_Click(object sender, EventArgs e)
         {
-            //StartGame();
+
         }
     }
 }

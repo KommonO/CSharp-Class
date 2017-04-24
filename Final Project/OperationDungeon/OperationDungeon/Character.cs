@@ -17,6 +17,7 @@ namespace OperationDungeon
         public int health;
         private int turnCount;
         bool flag = false;
+        bool isDead = false;
         public event EventHandler CharacterClick;
 
         public Character()
@@ -80,6 +81,18 @@ namespace OperationDungeon
             get
             {
                 return speed;
+            }
+        }
+        public virtual bool IsDead
+        {
+            set
+            {
+                isDead = value;
+                Console.WriteLine($"setting isDead for {name}to: {isDead}");
+            }
+            get
+            {
+                return isDead;
             }
         }
         public virtual int Health

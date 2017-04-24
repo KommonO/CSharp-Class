@@ -14,6 +14,7 @@ namespace OperationDungeon
         int intelligence;
         int strength;
         private int speed;
+        bool isDead = false;
         public Warrior()
         {
 
@@ -28,11 +29,23 @@ namespace OperationDungeon
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
-            this.strength = 10;
+            this.strength = 101;
             Console.WriteLine($"initial speed for {name} = {Speed}");
             Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
             //Somehow print the sprite of the character on the button 
             //this.healthBar.Value = 100;
+        }
+        public override bool IsDead
+        {
+            set
+            {
+                isDead = value;
+                Console.WriteLine($"setting isDead for {name}to: {isDead}");
+            }
+            get
+            {
+                return isDead;
+            }
         }
         public override int TurnCount
         {
@@ -84,6 +97,7 @@ namespace OperationDungeon
                 {
                     //Character has died
                     this.Visible = false;
+                    isDead = true;
                 }
             }
             get
