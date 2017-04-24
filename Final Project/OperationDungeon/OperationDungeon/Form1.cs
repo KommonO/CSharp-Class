@@ -67,19 +67,19 @@ namespace OperationDungeon
 
             //Create Enemy 1
             grid[1, 0] = new Bandit("Bandit1");
-            grid[1, 0].Location = new Point(550, 50);
+            grid[1, 0].Location = new Point(450, 50);
             grid[1, 0].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 0]);
 
             //Create Enemy 2
             grid[1, 1] = new Dragon("Dragon2");
-            grid[1, 1].Location = new Point(550, 175);
+            grid[1, 1].Location = new Point(450, 175);
             grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 1]);
 
             //Create Enemy 3
             grid[1, 2] = new Ogre("CharacterKommon");
-            grid[1, 2].Location = new Point(550, 300);
+            grid[1, 2].Location = new Point(450, 300);
             grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 2]);
 
@@ -142,6 +142,8 @@ namespace OperationDungeon
             }
             flag = true;
             tempCharacter.panel1.BackColor = Color.Red;
+            //System.Drawing.Image.FromFile(@"Warrior.png");
+            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Warrior_Background.png");
             tempCharacter.chooseAttackComboBox.Visible = true;
             tempCharacter.chooseAttackLabel.Visible = true;
             return tempCharacter;
@@ -240,6 +242,7 @@ namespace OperationDungeon
             int tempStrength = tempAttack[0];
             int tempIntelligence = tempAttack[1];
             c.Defense(tempStrength, tempIntelligence);
+            nextCharacter.SkillPoints=nextCharacter.SkillPoints + 25;
             eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} with {tempStrength + tempIntelligence} attack \n");
             //adjust the turn counts
             for (int t = 0; t < characterList.Count(); t++)

@@ -15,6 +15,8 @@ namespace OperationDungeon
         private string name;
         public int speed;
         public int health;
+        //adding skill points to mimic health
+        public int skillPoints;
         private int turnCount;
         bool flag = false;
         bool isDead = false;
@@ -31,6 +33,7 @@ namespace OperationDungeon
             this.Speed = 0;
             this.healthBar.Maximum = 100;
             this.Health = 100;
+            this.SkillPoints = 50;
             
         }
         
@@ -105,6 +108,18 @@ namespace OperationDungeon
             get
             {
                 return health;
+            }
+        }
+        public virtual int SkillPoints
+        {
+            set
+            {
+                skillPoints = value;
+                skillPointsBar.Value = value;
+            }
+            get
+            {
+                return skillPoints;
             }
         }
 

@@ -155,6 +155,7 @@
             this.eventTextbox.Location = new System.Drawing.Point(13, 507);
             this.eventTextbox.Multiline = true;
             this.eventTextbox.Name = "eventTextbox";
+            this.eventTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.eventTextbox.Size = new System.Drawing.Size(708, 98);
             this.eventTextbox.TabIndex = 5;
             // 

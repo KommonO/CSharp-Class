@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chooseAttackLabel = new System.Windows.Forms.Label();
+            this.chooseAttackComboBox = new System.Windows.Forms.ComboBox();
+            this.skillPointsLabel = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.skillPointsLabel = new System.Windows.Forms.Label();
-            this.chooseAttackComboBox = new System.Windows.Forms.ComboBox();
-            this.chooseAttackLabel = new System.Windows.Forms.Label();
+            this.skillPointsBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.skillPointsBar);
             this.panel1.Controls.Add(this.chooseAttackLabel);
             this.panel1.Controls.Add(this.chooseAttackComboBox);
             this.panel1.Controls.Add(this.skillPointsLabel);
@@ -56,6 +58,35 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
+            // 
+            // chooseAttackLabel
+            // 
+            this.chooseAttackLabel.AutoSize = true;
+            this.chooseAttackLabel.Location = new System.Drawing.Point(87, 4);
+            this.chooseAttackLabel.Name = "chooseAttackLabel";
+            this.chooseAttackLabel.Size = new System.Drawing.Size(77, 13);
+            this.chooseAttackLabel.TabIndex = 7;
+            this.chooseAttackLabel.Text = "Choose Attack";
+            this.chooseAttackLabel.Visible = false;
+            // 
+            // chooseAttackComboBox
+            // 
+            this.chooseAttackComboBox.FormattingEnabled = true;
+            this.chooseAttackComboBox.Location = new System.Drawing.Point(81, 28);
+            this.chooseAttackComboBox.Name = "chooseAttackComboBox";
+            this.chooseAttackComboBox.Size = new System.Drawing.Size(88, 21);
+            this.chooseAttackComboBox.TabIndex = 6;
+            this.chooseAttackComboBox.Visible = false;
+            // 
+            // skillPointsLabel
+            // 
+            this.skillPointsLabel.AutoSize = true;
+            this.skillPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skillPointsLabel.Location = new System.Drawing.Point(84, 83);
+            this.skillPointsLabel.Name = "skillPointsLabel";
+            this.skillPointsLabel.Size = new System.Drawing.Size(57, 13);
+            this.skillPointsLabel.TabIndex = 4;
+            this.skillPointsLabel.Text = "Skill Points";
             // 
             // healthBar
             // 
@@ -94,34 +125,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // skillPointsLabel
+            // skillPointsBar
             // 
-            this.skillPointsLabel.AutoSize = true;
-            this.skillPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.skillPointsLabel.Location = new System.Drawing.Point(84, 83);
-            this.skillPointsLabel.Name = "skillPointsLabel";
-            this.skillPointsLabel.Size = new System.Drawing.Size(57, 13);
-            this.skillPointsLabel.TabIndex = 4;
-            this.skillPointsLabel.Text = "Skill Points";
-            // 
-            // chooseAttackComboBox
-            // 
-            this.chooseAttackComboBox.FormattingEnabled = true;
-            this.chooseAttackComboBox.Location = new System.Drawing.Point(81, 28);
-            this.chooseAttackComboBox.Name = "chooseAttackComboBox";
-            this.chooseAttackComboBox.Size = new System.Drawing.Size(88, 21);
-            this.chooseAttackComboBox.TabIndex = 6;
-            this.chooseAttackComboBox.Visible = false;
-            // 
-            // chooseAttackLabel
-            // 
-            this.chooseAttackLabel.AutoSize = true;
-            this.chooseAttackLabel.Location = new System.Drawing.Point(87, 4);
-            this.chooseAttackLabel.Name = "chooseAttackLabel";
-            this.chooseAttackLabel.Size = new System.Drawing.Size(77, 13);
-            this.chooseAttackLabel.TabIndex = 7;
-            this.chooseAttackLabel.Text = "Choose Attack";
-            this.chooseAttackLabel.Visible = false;
+            this.skillPointsBar.Location = new System.Drawing.Point(87, 99);
+            this.skillPointsBar.Name = "skillPointsBar";
+            this.skillPointsBar.Size = new System.Drawing.Size(100, 10);
+            this.skillPointsBar.TabIndex = 8;
             // 
             // Character
             // 
@@ -146,6 +155,7 @@
         public System.Windows.Forms.Label chooseAttackLabel;
         public System.Windows.Forms.ComboBox chooseAttackComboBox;
         private System.Windows.Forms.Label skillPointsLabel;
+        public System.Windows.Forms.ProgressBar skillPointsBar;
         //private System.Windows.Forms.ProgressBar healthBar;
 
     }

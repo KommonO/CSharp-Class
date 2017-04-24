@@ -25,6 +25,7 @@ namespace OperationDungeon
             this.Speed = 1; //Default speed of Bandit
             this.CharacterName = name;
             this.Health = 100;
+            this.SkillPoints = 50;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
@@ -66,6 +67,27 @@ namespace OperationDungeon
             get
             {
                 return health;
+            }
+        }
+        public override int SkillPoints
+        {
+            set
+            {
+                skillPoints = value;
+                try
+                {
+                    skillPointsBar.Value = value;
+                }
+                catch
+                {
+                    //Character has died
+                    //this.Visible = false;
+                    MessageBox.Show("Skill points full");
+                }
+            }
+            get
+            {
+                return skillPoints;
             }
         }
         public override bool IsDead

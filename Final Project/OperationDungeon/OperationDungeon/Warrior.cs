@@ -26,6 +26,8 @@ namespace OperationDungeon
             this.Speed = 1; //Default speed of a Warrior character is 2? Using 1 for first submission purposes in case I can't add multiple Confirm with the UML Diagram
             //this.healthBar.Style = ProgressBarStyle.Blocks;
             this.Health = 100;
+            this.SkillPoints = 50;
+
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
@@ -104,6 +106,27 @@ namespace OperationDungeon
             get
             {
                 return health;
+            }
+        }
+        public override int SkillPoints
+        {
+            set
+            {
+                skillPoints = value;
+                try
+                {
+                    skillPointsBar.Value = value;
+                }
+                catch
+                {
+                    //Character has died
+                    //this.Visible = false;
+                    MessageBox.Show($"Skill points full: {skillPointsBar.Value}");
+                }
+            }
+            get
+            {
+                return skillPoints;
             }
         }
 
