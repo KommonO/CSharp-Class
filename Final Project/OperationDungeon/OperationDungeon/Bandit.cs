@@ -20,7 +20,7 @@ namespace OperationDungeon
         }
         public Bandit(string name)
         {
-            this.Speed = 3; //Default speed of Bandit
+            this.Speed = 1; //Default speed of Bandit
             this.CharacterName = name;
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");

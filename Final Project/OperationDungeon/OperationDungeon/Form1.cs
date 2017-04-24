@@ -20,6 +20,7 @@ namespace OperationDungeon
         Character nextCharacter;
         bool flag = false;
         int numEnemies = 0;
+        int numHeroes = 0;
         Game game;
 
         public Form1()
@@ -46,41 +47,41 @@ namespace OperationDungeon
 
             /****add a switch case statement, return an array from creating a game of characters to be placed, should return in order of placement***/
             //Create Hero 1
-            grid[0, 0] = new Warrior("WarriorKommon");
+            grid[0, 0] = new Warrior("Warrior3");
             grid[0, 0].Location = new Point(100, 50);
             grid[0, 0].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[0, 0]);
 
 
             //Create Hero 2
-            grid[0, 1] = new Warrior("CharacterKommon");
+            grid[0, 1] = new Cleric("Cleric2");
             grid[0, 1].Location = new Point(100, 175);
             grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[0, 1]);
 
             ////Create Hero 3
-            //grid[0, 2] = new Character("CharacterKommon");
-            //grid[0, 2].Location = new Point(100, 300);
-            //grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
-            //this.Controls.Add(grid[0, 2]);
+            grid[0, 2] = new Mage("Mage3");
+            grid[0, 2].Location = new Point(100, 300);
+            grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
+            this.Controls.Add(grid[0, 2]);
 
             //Create Enemy 1
-            grid[1, 0] = new Bandit("BanditKommon");
+            grid[1, 0] = new Bandit("Bandit1");
             grid[1, 0].Location = new Point(550, 50);
             grid[1, 0].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 0]);
 
             ////Create Enemy 2
-            grid[1, 1] = new Bandit("CharacterKommon");
+            grid[1, 1] = new Dragon("Dragon2");
             grid[1, 1].Location = new Point(550, 175);
             grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 1]);
 
             ////Create Enemy 3
-            //grid[1, 2] = new Character("CharacterKommon");
-            //grid[1, 2].Location = new Point(550, 300);
-            //grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
-            //this.Controls.Add(grid[1, 2]);
+            grid[1, 2] = new Ogre("CharacterKommon");
+            grid[1, 2].Location = new Point(550, 300);
+            grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
+            this.Controls.Add(grid[1, 2]);
             /*
              * 
              * 
@@ -120,8 +121,13 @@ namespace OperationDungeon
                 {
                     numEnemies++;
                 }
+                else
+                {
+                    numHeroes++;
+                }
             }
-            MessageBox.Show($"Number of enemies = {numEnemies}");
+            MessageBox.Show($"Number of enemies = {numEnemies}, heroes = {numHeroes}");
+            
         }
         //Method responsible for choosing the next player in line
         public Character Next()
@@ -132,8 +138,6 @@ namespace OperationDungeon
 
             //find the next player in the queue, or lowest turnCount left
             Console.WriteLine($"Before the for loop Count = {characterList.Count()}");
-            Console.WriteLine($"Before the for characterList at index 0 = {characterList[0].CharacterName}");
-            Console.WriteLine($"Before the for characterList at index 1 = {characterList[1].CharacterName}");
             //Find the character with the smallest turnCount
 
             for (int s = 0; s < characterList.Count(); s++)
@@ -156,13 +160,14 @@ namespace OperationDungeon
             //characterList.Remove(characterToLive);
             if (characterToLive.IsDead == true)
             {
-                MessageBox.Show($"Character who died is {characterToLive.CharacterName}");
+                //MessageBox.Show($"Character who died is {characterToLive.CharacterName}");
+                eventTextbox.AppendText($"{characterToLive.CharacterName} has died.");
                 for (int i = 0; i < characterList.Count(); i++)
                 {
                     if (characterList[i].CharacterName == characterToLive.CharacterName)
                     {
                         Console.WriteLine($"{characterList[i].CharacterName} = {characterToLive.CharacterName}");
-                        MessageBox.Show($"Character Erased. Count before{characterList.Count()}");
+                        //MessageBox.Show($"Character Erased. Count before{characterList.Count()}");
                         if (characterToLive.GetType().BaseType.ToString() == "OperationDungeon.Enemy")
                         {
                             numEnemies--;
@@ -176,8 +181,21 @@ namespace OperationDungeon
                             }
 
                         }
+                        else
+                        {
+                            numHeroes--;
+                            //If statement to check if the game is over after killing the enemy. This will need to change to a point where it will happen whether
+                            //the character is an enemy or hero
+                            if (numHeroes == 0)
+                            {
+                                eventTextbox.AppendText("Player has Lost the round");
+                                MessageBox.Show("You have lost the game! Thanks for playing! The Game will Close now.");
+                                this.Close();
+                            }
+                        }
                         characterList.Remove(characterToLive);
-                        MessageBox.Show($"Character Erased. Count After{characterList.Count()}");
+                        eventTextbox.AppendText($"Heroes={numHeroes} Enemies={numEnemies} \n");
+                        //MessageBox.Show($"Character Erased. Count After{characterList.Count()}");
                     }
                 }
             }
@@ -197,7 +215,7 @@ namespace OperationDungeon
                 nextCharacter = Next();
 
             }
-            MessageBox.Show($"character attacking is: {nextCharacter.CharacterName}");
+            //MessageBox.Show($"character attacking is: {nextCharacter.CharacterName}");
             Console.WriteLine($"Next in line is {nextCharacter.CharacterName} with the lowest turnCount of {nextCharacter.TurnCount}");
 
 
@@ -211,11 +229,11 @@ namespace OperationDungeon
             //end hero/enemy check
             string nextCharacterBase = Convert.ToString(nextCharacter.GetType().BaseType);
             nextCharacterBase = nextCharacterBase.Split('.')[1];
-            MessageBox.Show($"tempBase: {tempBase} - nextCharacterBaese: {nextCharacterBase}");
+            //MessageBox.Show($"tempBase: {tempBase} - nextCharacterBaese: {nextCharacterBase}");
             if (tempBase != nextCharacterBase)
             {
                 //If they are not on the same team, attack
-                MessageBox.Show("person clicked is not on the same team.");
+                //MessageBox.Show("person clicked is not on the same team.");
             }
             else
             {
@@ -244,9 +262,9 @@ namespace OperationDungeon
                     characterList[t].TurnCount--;
                 }
             }
-            MessageBox.Show("Changing color back to normal"); 
+            //MessageBox.Show("Changing color back to normal"); 
             nextCharacter.panel1.BackColor = SystemColors.Control;
-            MessageBox.Show($"Checking death of {c.CharacterName}");
+            //MessageBox.Show($"Checking death of {c.CharacterName}");
             CheckDeath(c);
             nextCharacter = Next();
         }

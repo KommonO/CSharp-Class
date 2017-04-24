@@ -23,13 +23,13 @@ namespace OperationDungeon
         {
             Console.WriteLine($"Warrior Created, name = {name}");
             this.CharacterName = name;
-            this.Speed = 2; //Default speed of a Warrior character is 2? Using 1 for first submission purposes in case I can't add multiple Confirm with the UML Diagram
+            this.Speed = 1; //Default speed of a Warrior character is 2? Using 1 for first submission purposes in case I can't add multiple Confirm with the UML Diagram
             //this.healthBar.Style = ProgressBarStyle.Blocks;
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
-            this.strength = 101;
+            this.strength = 10;
             Console.WriteLine($"initial speed for {name} = {Speed}");
             Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
             //Somehow print the sprite of the character on the button 
