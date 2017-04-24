@@ -52,13 +52,15 @@ namespace OperationDungeon
 
 
             //Create Hero 2
-            //grid[0, 1] = new Character("CharacterKommon");
-            //grid[0, 1].Location = new Point(100, 175);
-            //this.Controls.Add(grid[0, 1]);
+            grid[0, 1] = new Warrior("CharacterKommon");
+            grid[0, 1].Location = new Point(100, 175);
+            grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
+            this.Controls.Add(grid[0, 1]);
 
             ////Create Hero 3
             //grid[0, 2] = new Character("CharacterKommon");
             //grid[0, 2].Location = new Point(100, 300);
+            //grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
             //this.Controls.Add(grid[0, 2]);
 
             //Create Enemy 1
@@ -70,11 +72,13 @@ namespace OperationDungeon
             ////Create Enemy 2
             //grid[1, 1] = new Character("CharacterKommon");
             //grid[1, 1].Location = new Point(550, 175);
+            //grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
             //this.Controls.Add(grid[1, 1]);
 
             ////Create Enemy 3
             //grid[1, 2] = new Character("CharacterKommon");
             //grid[1, 2].Location = new Point(550, 300);
+            //grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
             //this.Controls.Add(grid[1, 2]);
             /*
              * 
