@@ -21,7 +21,7 @@ namespace OperationDungeon
         {
             this.Speed = 1; //Default speed of Bandit
             this.CharacterName = name;
-            this.Health = 50;
+            this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");
             this.TurnCount = Speed;
             Console.WriteLine($"initial speed for {name} = {Speed}");
@@ -97,12 +97,12 @@ namespace OperationDungeon
                 return speed;
             }
         }
-        //public override void Defense(int strength, int intelligence)
-        //{
-        //    //This is the method that will receive the attacks and adjust the damage according to the character.
+        public override void Defense(int strength, int intelligence)
+        {
+            //This is the method that will receive the attacks and adjust the damage according to the character.
+            this.Health = this.Health - (strength + intelligence);
 
-
-        //}
+        }
 
         //protected override void button1_Click(object sender, EventArgs e)
         //{

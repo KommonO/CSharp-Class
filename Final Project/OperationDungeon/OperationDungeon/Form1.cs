@@ -70,10 +70,10 @@ namespace OperationDungeon
             this.Controls.Add(grid[1, 0]);
 
             ////Create Enemy 2
-            //grid[1, 1] = new Character("CharacterKommon");
-            //grid[1, 1].Location = new Point(550, 175);
-            //grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
-            //this.Controls.Add(grid[1, 1]);
+            grid[1, 1] = new Bandit("CharacterKommon");
+            grid[1, 1].Location = new Point(550, 175);
+            grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
+            this.Controls.Add(grid[1, 1]);
 
             ////Create Enemy 3
             //grid[1, 2] = new Character("CharacterKommon");
@@ -141,7 +141,7 @@ namespace OperationDungeon
         {
             Console.WriteLine("Attack Character Ran");
             Character c = (Character)sender;
-            c.Health = c.Health - 20;
+            //c.Health = c.Health - 20;
             if (flag)
             {
                 //flag is true, Next has been ran and the flag is set to true
@@ -186,7 +186,7 @@ namespace OperationDungeon
             int tempStrength = tempAttack[0];
             int tempIntelligence = tempAttack[1];
             c.Defense(tempStrength, tempIntelligence);
-            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} \n");
+            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} with {tempStrength + tempIntelligence} attack \n");
             //adjust the turn counts
             for (int t = 0; t < characterList.Count(); t++)
             {
