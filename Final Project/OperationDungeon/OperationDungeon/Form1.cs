@@ -59,7 +59,7 @@ namespace OperationDungeon
             grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[0, 1]);
 
-            //Create Hero 3
+            ////Create Hero 3
             grid[0, 2] = new Mage("Mage3");
             grid[0, 2].Location = new Point(100, 300);
             grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
@@ -77,7 +77,7 @@ namespace OperationDungeon
             grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 1]);
 
-            //Create Enemy 3
+            ////Create Enemy 3
             grid[1, 2] = new Ogre("Ogre3");
             grid[1, 2].Location = new Point(450, 300);
             grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
@@ -183,7 +183,7 @@ namespace OperationDungeon
                     break;
                 case "Ogre":
                     Console.WriteLine("Character to background change = Ogre");
-                    //backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Ogre_Background.png");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Ogre_Background.png");
                     break;
             }
 

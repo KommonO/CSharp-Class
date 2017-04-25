@@ -98,9 +98,11 @@
             // healthBar
             // 
             this.healthBar.Location = new System.Drawing.Point(3, 99);
+            this.healthBar.Minimum = 1;
             this.healthBar.Name = "healthBar";
             this.healthBar.Size = new System.Drawing.Size(71, 10);
             this.healthBar.TabIndex = 3;
+            this.healthBar.Value = 1;
             this.healthBar.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // healthValueLabel

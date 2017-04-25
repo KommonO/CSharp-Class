@@ -122,7 +122,7 @@ namespace OperationDungeon
                 {
                     //Character has died
                     //this.Visible = false;
-                    MessageBox.Show($"Skill points full: {skillPointsBar.Value}");
+                    //MessageBox.Show($"Skill points full: {skillPointsBar.Value}");
                 }
             }
             get
