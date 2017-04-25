@@ -95,6 +95,7 @@ namespace OperationDungeon
                 try
                 {
                     healthBar.Value = value;
+                    healthValueLabel.Text = $"{health}/100";
                 }
                 catch
                 {

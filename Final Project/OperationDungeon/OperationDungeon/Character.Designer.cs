@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.skillPointsBar = new System.Windows.Forms.ProgressBar();
             this.chooseAttackLabel = new System.Windows.Forms.Label();
             this.chooseAttackComboBox = new System.Windows.Forms.ComboBox();
             this.skillPointsLabel = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.healthValueLabel = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.skillPointsBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             this.panel1.Controls.Add(this.chooseAttackComboBox);
             this.panel1.Controls.Add(this.skillPointsLabel);
             this.panel1.Controls.Add(this.healthBar);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.healthValueLabel);
             this.panel1.Controls.Add(this.healthLabel);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -58,6 +58,13 @@
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             this.panel1.MouseHover += new System.EventHandler(this.panel1_MouseHover);
+            // 
+            // skillPointsBar
+            // 
+            this.skillPointsBar.Location = new System.Drawing.Point(87, 99);
+            this.skillPointsBar.Name = "skillPointsBar";
+            this.skillPointsBar.Size = new System.Drawing.Size(100, 10);
+            this.skillPointsBar.TabIndex = 8;
             // 
             // chooseAttackLabel
             // 
@@ -96,15 +103,15 @@
             this.healthBar.TabIndex = 3;
             this.healthBar.Click += new System.EventHandler(this.progressBar1_Click);
             // 
-            // label1
+            // healthValueLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "100/100";
+            this.healthValueLabel.AutoSize = true;
+            this.healthValueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.healthValueLabel.Location = new System.Drawing.Point(32, 83);
+            this.healthValueLabel.Name = "healthValueLabel";
+            this.healthValueLabel.Size = new System.Drawing.Size(46, 13);
+            this.healthValueLabel.TabIndex = 2;
+            this.healthValueLabel.Text = "100/100";
             // 
             // healthLabel
             // 
@@ -125,13 +132,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // skillPointsBar
-            // 
-            this.skillPointsBar.Location = new System.Drawing.Point(87, 99);
-            this.skillPointsBar.Name = "skillPointsBar";
-            this.skillPointsBar.Size = new System.Drawing.Size(100, 10);
-            this.skillPointsBar.TabIndex = 8;
-            // 
             // Character
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,7 +150,7 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label healthLabel;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label healthValueLabel;
         public System.Windows.Forms.ProgressBar healthBar;
         public System.Windows.Forms.Label chooseAttackLabel;
         public System.Windows.Forms.ComboBox chooseAttackComboBox;

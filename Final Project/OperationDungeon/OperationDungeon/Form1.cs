@@ -78,7 +78,7 @@ namespace OperationDungeon
             this.Controls.Add(grid[1, 1]);
 
             //Create Enemy 3
-            grid[1, 2] = new Ogre("CharacterKommon");
+            grid[1, 2] = new Ogre("Ogre3");
             grid[1, 2].Location = new Point(450, 300);
             grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
             this.Controls.Add(grid[1, 2]);
@@ -141,12 +141,52 @@ namespace OperationDungeon
                 }
             }
             flag = true;
-            tempCharacter.panel1.BackColor = Color.Red;
+            //tempCharacter.panel1.BackColor = Color.Red;
             //System.Drawing.Image.FromFile(@"Warrior.png");
-            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Warrior_Background.png");
+            //Here we need to have an if statement for each character
+            //Sizes need to be 194x111
+            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Warrior_Background.png");
+            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Cleric_Background.png");
+            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Mage_Background.png");
+            SetBackground(tempCharacter);
+
+
             tempCharacter.chooseAttackComboBox.Visible = true;
             tempCharacter.chooseAttackLabel.Visible = true;
             return tempCharacter;
+        }
+        public void SetBackground(Character backgroundCharacter)
+        {
+            string characterType = backgroundCharacter.GetType().ToString();
+            characterType = characterType.Split('.')[1];
+            Console.WriteLine($"string = {characterType} before split");
+            switch (characterType){ 
+                case "Warrior":
+                    Console.WriteLine("Character to background change = Warrior");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Warrior_Background.png");
+                    break;
+                case "Mage":
+                    Console.WriteLine("Character to background change = Mage");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Mage_Background.png");
+                    break;
+                case "Cleric":
+                    Console.WriteLine("Character to background change = Cleric");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Cleric_Background.png");
+                    break;
+                case "Bandit":
+                    Console.WriteLine("Character to background change = Bandit");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Bandit_Background3.png");
+                    break;
+                case "Dragon":
+                    Console.WriteLine("Character to background change = Dragon");
+                    backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Dragon_Background.png");
+                    break;
+                case "Ogre":
+                    Console.WriteLine("Character to background change = Ogre");
+                    //backgroundCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Ogre_Background.png");
+                    break;
+            }
+
         }
         public void CheckDeath(Character characterToLive)
         {
@@ -257,7 +297,8 @@ namespace OperationDungeon
                 }
             }
             //MessageBox.Show("Changing color back to normal"); 
-            nextCharacter.panel1.BackColor = SystemColors.Control;
+            //nextCharacter.panel1.BackColor = SystemColors.Control;
+            nextCharacter.panel1.BackgroundImage = null;
             nextCharacter.chooseAttackComboBox.Visible = false;
             nextCharacter.chooseAttackLabel.Visible = false;
             //MessageBox.Show($"Checking death of {c.CharacterName}");
