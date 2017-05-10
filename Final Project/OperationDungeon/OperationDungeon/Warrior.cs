@@ -25,7 +25,7 @@ namespace OperationDungeon
             this.CharacterName = name;
             this.Speed = 1;
             this.Health = 100;
-            this.SkillPoints = 50;
+            this.SkillPoints = 0;
             this.skillPointsBar.Maximum = 99;
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
@@ -72,40 +72,7 @@ namespace OperationDungeon
                 return name;
             }
         }
-        //public override int Health
-        //{
-        //    set
-        //    {
-        //        health = value;
-        //        try
-        //        {
-        //            healthBar.Value = value;
-        //            healthValueLabel.Text = $"{health}/100";
-        //        }
-        //        catch
-        //        {
-        //            if (health > 0)
-        //            {
 
-        //                healthBar.Value = healthBar.Maximum;
-        //                healthValueLabel.Text = $"{health}/100";
-        //            }
-        //            else
-        //            {
-        //                //Character has died
-        //                this.Visible = false;
-        //                isDead = true;
-
-        //            }
-                  
-                    
-        //        }
-        //    }
-        //    get
-        //    {
-        //        return health;
-        //    }
-        //}
         public override int SkillPoints
         {
             set
@@ -135,22 +102,12 @@ namespace OperationDungeon
 
             int[] attackArray = new int[2] { strength, intelligence };
             Console.WriteLine($"Warrior Attac Method ran, attackArray.Count: {attackArray.Count()}");
-            //Health = Health - 10;
             return attackArray;
-
         }
         public override void Defense(int strength, int intelligence)
         {
             //alters the health bar of self
             this.Health = this.Health - (strength + intelligence);
         }
-        //protected override void characterSelectSubmit_Click(object sender, EventArgs e)
-        //{
-        //    //MessageBox.Show("derived");
-        //    MessageBox.Show("Warrior Clicked");
-        //    Console.WriteLine("Warrior Clicked");
-
-        //    Defense(5,5);
-        //}
     }
 }

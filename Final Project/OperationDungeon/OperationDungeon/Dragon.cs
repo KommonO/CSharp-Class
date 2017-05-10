@@ -20,10 +20,8 @@ namespace OperationDungeon
         }
         public Dragon(string name)
         {
-            Console.WriteLine($"Dragon Created, name = {name}");
             this.CharacterName = name;
-            this.Speed = 2; 
-
+            this.Speed = 3; 
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Dragon2_Black.png");
             this.TurnCount = Speed;

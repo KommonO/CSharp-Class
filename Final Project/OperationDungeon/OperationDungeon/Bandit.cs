@@ -12,8 +12,6 @@ namespace OperationDungeon
 
         private string name;
         private int turnCount;
-        public int speed;
-        bool isDead = false;
         int intelligence;
         int strength;
         public Bandit()
@@ -25,7 +23,7 @@ namespace OperationDungeon
             this.Speed = 1; //Default speed of Bandit
             this.CharacterName = name;
             this.Health = 100;
-            this.SkillPoints = 50;
+            this.SkillPoints = 0;
             this.button1.Image = System.Drawing.Image.FromFile(@"Bandit.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
@@ -61,9 +59,7 @@ namespace OperationDungeon
                 }
                 catch
                 {
-                    //Character has died
-                    //this.Visible = false;
-                    //MessageBox.Show("Skill points full");
+
                     chooseAttackComboBox.Items.Add("Special");
                     
                 }

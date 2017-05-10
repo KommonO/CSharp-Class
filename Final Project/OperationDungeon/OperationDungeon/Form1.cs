@@ -21,41 +21,24 @@ namespace OperationDungeon
         bool flag = false;
         int numEnemies = 0;
         int numHeroes = 0;
-        //Game game;
         string[] selectedHeroArray;
 
         public Form1(string[] initHeroArray)
         {
-            //SelectCharacterForm characterSelect = new OperationDungeon.SelectCharacterForm();
-            //characterSelect.Show();
             InitializeComponent();
             selectedHeroArray = initHeroArray;
-
         }
 
         
         private void LoadCharacters()
         {
-            /*
-             * 
-             *This needs to be Automated based on user inputs at the beginning
-             * -Have user enter information, hero: name, location, type(Although they only get 1 of each)
-             *  
-             *When Enemies are generated
-             *  -Either have them spawn based off of random numbers or have it based on number of levels completed
-             *  - 
-             * 
-             * 
-             */
-            //SelectCharacterForm();
-            
-            
-            //Decide placement of heroes.
+
+            //Decide placement of heroes based on user selection
             for(int i = 0; i < selectedHeroArray.Count(); i++)
             {
                 if(selectedHeroArray[i] == "Warrior")
                 {
-                    grid[0, i] = new Warrior("Warrior");
+                    grid[0, i] = new Warrior("Warrior"); // Generic names, would have added a textbox,if time allowed, for user to enter character names
 
                 }
                 else if (selectedHeroArray[i] == "Mage")
@@ -104,24 +87,72 @@ namespace OperationDungeon
             {
 
             }
+            Random rnd2 = new Random();
+            int numEnemies = rnd2.Next(1, 4);
+            Random rnd = new Random();
+            //Plans would have been to write this code to generate a random number of enemies,
+            //As well as selecting random enemies per position
+            for (int j = 0; j< numEnemies; j++)
+            {
+                
+                int randEnemy = rnd.Next(1, 4);
+                if (randEnemy == 1)
+                {
+                    //Create Enemy 1
+                    grid[1, j] = new Bandit("Bandit");
+                    
+                }
+                if (randEnemy == 2)
+                {
+                    //Create Enemy 2
+                    grid[1, j] = new Dragon("Dragon");
+                   
+                }
 
-            //Create Enemy 1
-            grid[1, 0] = new Bandit("Bandit1");
-            grid[1, 0].Location = new Point(450, 50);
-            grid[1, 0].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[1, 0]);
+                if (randEnemy == 3)
+                {
+                    ////Create Enemy 3
+                    grid[1, j] = new Ogre("Ogre");
+                    
+                }
+            }
+            //Place enemy 1 if applicable
+            try
+            {
+                grid[1, 0].Location = new Point(450, 50);
+                grid[1, 0].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[1, 0]);
+            }
+            catch
+            {
 
-            //Create Enemy 2
-            grid[1, 1] = new Dragon("Dragon2");
-            grid[1, 1].Location = new Point(450, 175);
-            grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[1, 1]);
+            }
+            //Place Enemy 2, if applicable
+            try
+            {
+                grid[1, 1].Location = new Point(450, 175);
+                grid[1, 1].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[1, 1]);
+            }
+            catch
+            {
 
-            ////Create Enemy 3
-            grid[1, 2] = new Ogre("Ogre3");
-            grid[1, 2].Location = new Point(450, 300);
-            grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[1, 2]);
+            }
+            //Place Enemy 3, if applicable
+            try
+            {
+                grid[1, 2].Location = new Point(450, 300);
+                grid[1, 2].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[1, 2]);
+            }
+            catch
+            {
+
+            }
+
+
+
+
 
             characterList?.Add(grid[0, 0]);
             characterList?.Add(grid[0, 1]);
@@ -132,12 +163,6 @@ namespace OperationDungeon
 
             //Line required to erase the empty items in the characterList
             characterList = characterList.Where(s => !string.IsNullOrWhiteSpace(Convert.ToString(s))).Distinct().ToList();
-           
-            Console.WriteLine($"Warrior Speed = : {grid[0,0].Speed} Should be 2");
-            //Console.WriteLine($"Character Speed = : {grid[0, 1].Speed} Should be 0");
-
-
-
         }
 
         public void CheckNumEnemies(List<Character> checkList)
@@ -181,16 +206,7 @@ namespace OperationDungeon
                 }
             }
             flag = true;
-            //tempCharacter.panel1.BackColor = Color.Red;
-            //System.Drawing.Image.FromFile(@"Warrior.png");
-            //Here we need to have an if statement for each character
-            //Sizes need to be 194x111
-            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Warrior_Background.png");
-            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Cleric_Background.png");
-            //tempCharacter.panel1.BackgroundImage = System.Drawing.Image.FromFile(@"Backgrounds/Mage_Background.png");
             SetBackground(tempCharacter);
-
-
             tempCharacter.chooseAttackComboBox.Visible = true;
             tempCharacter.chooseAttackLabel.Visible = true;
             return tempCharacter;
@@ -392,6 +408,11 @@ namespace OperationDungeon
         private void character_load(object sender, EventArgs e)
         {
 
+        }
+
+        private void restartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
