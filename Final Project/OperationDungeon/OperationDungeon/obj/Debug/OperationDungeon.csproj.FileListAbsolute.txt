@@ -20,3 +20,5 @@ C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\Operat
 C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.csproj.GenerateResource.Cache
 C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.exe
 C:\Users\Kirsten\Source\Repos\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\bin\Debug\OperationDungeon.pdb
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.ChooseCharacterControl.resources
+C:\Users\Kommon\Documents\GitHub\CSharp-Class\Final Project\OperationDungeon\OperationDungeon\obj\Debug\OperationDungeon.SelectCharacterForm.resources

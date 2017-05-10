@@ -25,6 +25,8 @@ namespace OperationDungeon
 
         public Form1()
         {
+            //SelectCharacterForm characterSelect = new OperationDungeon.SelectCharacterForm();
+            //characterSelect.Show();
             InitializeComponent();
             
 
@@ -44,7 +46,9 @@ namespace OperationDungeon
              * 
              * 
              */
-
+            //SelectCharacterForm();
+            
+            
             /****add a switch case statement, return an array from creating a game of characters to be placed, should return in order of placement***/
             //Create Hero 1
             grid[0, 0] = new Warrior("Warrior3");
@@ -115,7 +119,7 @@ namespace OperationDungeon
                     numHeroes++;
                 }
             }
-            MessageBox.Show($"Number of enemies = {numEnemies}, heroes = {numHeroes}");
+            //MessageBox.Show($"Number of enemies = {numEnemies}, heroes = {numHeroes}");
             
         }
         //Method responsible for choosing the next player in line
@@ -210,7 +214,15 @@ namespace OperationDungeon
                             {
                                 eventTextbox.AppendText("Player has completed the round");
                                 MessageBox.Show("Congrats on winning the game");
-                                this.Close();
+                                var restart = MessageBox.Show("You have defeated the horde of enemies! Would you like to play the next level?", "Message",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if(restart == DialogResult.Yes)
+                                {
+                                    Application.Restart();
+                                }
+                                else if(restart == DialogResult.No)
+                                {
+                                    this.Close();
+                                }
                             }
 
                         }
@@ -223,6 +235,15 @@ namespace OperationDungeon
                             {
                                 eventTextbox.AppendText("Player has Lost the round");
                                 MessageBox.Show("You have lost the game! Thanks for playing! The Game will Close now.");
+                                var restart = MessageBox.Show("All of your characters have died! Would you like to try again?", "Message", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
+                                if (restart == DialogResult.Retry)
+                                {
+                                    Application.Restart();
+                                }
+                                else if (restart == DialogResult.Cancel)
+                                {
+                                    this.Close();
+                                }
                                 this.Close();
                             } 
                         }

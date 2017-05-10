@@ -123,7 +123,7 @@ namespace OperationDungeon
             //alters the health bar of self
             this.Health = this.Health - (strength + intelligence);
         }
-        //protected override void button1_Click(object sender, EventArgs e)
+        //protected override void characterSelectSubmit_Click(object sender, EventArgs e)
         //{
         //    //MessageBox.Show("derived");
         //    MessageBox.Show("Warrior Clicked");

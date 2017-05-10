@@ -145,7 +145,7 @@ namespace OperationDungeon
 
         }
 
-        //protected override void button1_Click(object sender, EventArgs e)
+        //protected override void characterSelectSubmit_Click(object sender, EventArgs e)
         //{
         //    //MessageBox.Show("derived");
         //    MessageBox.Show("Bandit Clicked");

@@ -123,7 +123,7 @@ namespace OperationDungeon
             }
         }
 
-        //protected virtual void button1_Click(object sender, EventArgs e)
+        //protected virtual void characterSelectSubmit_Click(object sender, EventArgs e)
         protected void button1_Click(object sender, EventArgs e)
         {
             //Character s = (Character)sender;
