@@ -20,7 +20,7 @@ namespace OperationDungeon
         }
         public Cleric(string name)
         {
-            Console.WriteLine($"Cleric Created, name = {name}");
+            //Create a Character with Cleric Attributes
             this.CharacterName = name;
             this.Speed = 2;
             this.Health = 100;
@@ -36,7 +36,6 @@ namespace OperationDungeon
             set
             {
                 turnCount = value;
-                Console.WriteLine($"setting turnCount for {name}to: {turnCount}");
             }
             get
             {
@@ -48,8 +47,6 @@ namespace OperationDungeon
             set
             {
                 speed = value;
-                Console.WriteLine($"Setting speed to: {speed}");
-
             }
             get
             {
@@ -61,7 +58,6 @@ namespace OperationDungeon
             set
             {
                 name = value;
-                Console.WriteLine($"setting hero name to: {name}");
             }
             get
             {
@@ -96,7 +92,6 @@ namespace OperationDungeon
             ///value sent to the other's defense, return a value 
 
             int[] attackArray = new int[2] { strength, intelligence };
-            Console.WriteLine($"Cleric Attac Method ran, attackArray.Count: {attackArray.Count()}");
             return attackArray;
 
         }

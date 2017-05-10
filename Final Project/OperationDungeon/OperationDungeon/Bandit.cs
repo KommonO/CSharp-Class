@@ -88,7 +88,6 @@ namespace OperationDungeon
             set
             {
                 turnCount = value;
-                Console.WriteLine($"setting turnCount for {name}to: {turnCount}");
             }
             get
             {
@@ -100,7 +99,7 @@ namespace OperationDungeon
             set
             {
                 speed = value;
-                Console.WriteLine($"Setting speed to: {speed}");
+
 
             }
             get
@@ -114,13 +113,5 @@ namespace OperationDungeon
             this.Health = this.Health - (strength + intelligence);
 
         }
-
-        //protected override void characterSelectSubmit_Click(object sender, EventArgs e)
-        //{
-        //    //MessageBox.Show("derived");
-        //    MessageBox.Show("Bandit Clicked");
-        //    Console.WriteLine("Bandit Clicked");
-
-        //}
     }
 }
