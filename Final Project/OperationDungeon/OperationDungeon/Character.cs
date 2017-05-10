@@ -43,7 +43,6 @@ namespace OperationDungeon
             set
             {
                 name = value;
-                Console.WriteLine($"setting hero name to: {name}");
             }
             get
             {
@@ -55,7 +54,6 @@ namespace OperationDungeon
             set
             {
                 turnCount = value;
-                Console.WriteLine($"setting turnCount to: {turnCount}");
             }
             get
             {
@@ -67,7 +65,6 @@ namespace OperationDungeon
             set
             {
                 flag = value;
-                Console.WriteLine($"setting flag to: {flag}");
             }
             get
             {
@@ -79,8 +76,6 @@ namespace OperationDungeon
             set
             {
                 speed = value;
-                Console.WriteLine($"Setting speed to: {speed}");
-
             }
             get
             {
@@ -92,25 +87,12 @@ namespace OperationDungeon
             set
             {
                 isDead = value;
-                Console.WriteLine($"setting isDead for {name}to: {isDead}");
             }
             get
             {
                 return isDead;
             }
         }
-        //public virtual int Health
-        //{
-        //    set
-        //    {
-        //        health = value;
-        //        healthBar.Value = value;
-        //    }
-        //    get
-        //    {
-        //        return health;
-        //    }
-        //}
         public int Health
         {
             set
@@ -157,21 +139,12 @@ namespace OperationDungeon
                 return skillPoints;
             }
         }
-
-        //protected virtual void characterSelectSubmit_Click(object sender, EventArgs e)
         protected void button1_Click(object sender, EventArgs e)
         {
-            //Character s = (Character)sender;
-            Console.WriteLine("Button clicked");
-            //button1.Visible = false;
-
             if (this.CharacterClick != null)
             {
                 this.CharacterClick(this, e);
             }
-            //Console.WriteLine($"Character sender Clicked: {s.Name} and {s.name}");
-
-
         }
         public virtual int[] Attack(int attackType)
         {

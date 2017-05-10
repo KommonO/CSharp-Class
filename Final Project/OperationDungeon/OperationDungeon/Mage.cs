@@ -19,14 +19,13 @@ namespace OperationDungeon
         }
         public Mage(string name)
         {
-            Console.WriteLine($"Mage Created, name = {name}");
             this.CharacterName = name;
             this.Speed = 3;
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Mage.png");
             this.TurnCount = Speed;
-            this.intelligence = 0;
-            this.strength = 101;
+            this.intelligence = 20;
+            this.strength = 20;
             this.skillPointsBar.Maximum = 99;
             chooseAttackComboBox.Items.Add("Electrocute");
             chooseAttackComboBox.Items.Add("Burn ");
@@ -38,7 +37,6 @@ namespace OperationDungeon
             set
             {
                 turnCount = value;
-                Console.WriteLine($"setting turnCount for {name}to: {turnCount}");
             }
             get
             {
@@ -50,8 +48,6 @@ namespace OperationDungeon
             set
             {
                 speed = value;
-                Console.WriteLine($"Setting speed to: {speed}");
-
             }
             get
             {
@@ -63,7 +59,6 @@ namespace OperationDungeon
             set
             {
                 name = value;
-                Console.WriteLine($"setting hero name to: {name}");
             }
             get
             {

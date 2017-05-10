@@ -39,7 +39,6 @@ namespace OperationDungeon
             set
             {
                 turnCount = value;
-                Console.WriteLine($"setting turnCount for {name}to: {turnCount}");
             }
             get
             {
@@ -51,8 +50,6 @@ namespace OperationDungeon
             set
             {
                 speed = value;
-                Console.WriteLine($"Setting speed to: {speed}");
-
             }
             get
             {
@@ -64,7 +61,6 @@ namespace OperationDungeon
             set
             {
                 name = value;
-                Console.WriteLine($"setting hero name to: {name}");
             }
             get
             {
