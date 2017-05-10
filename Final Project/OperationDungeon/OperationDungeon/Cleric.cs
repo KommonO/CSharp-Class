@@ -28,8 +28,7 @@ namespace OperationDungeon
             this.TurnCount = Speed;
             this.intelligence = 5;
             this.strength = 15;
-            chooseAttackComboBox.Items.Add("Heal");
-            chooseAttackComboBox.Items.Add("Swipe");
+            chooseAttackComboBox.Items.Add("Heal/Swipe");
             chooseAttackComboBox.SelectedIndex = 0;
         }
         public override int TurnCount
@@ -103,7 +102,7 @@ namespace OperationDungeon
         }
         public override void Defense(int strength, int intelligence)
         {
-            //alters the health bar of self
+            //alters the health bar of self according to character adjustments(Future work)
             this.Health = this.Health - (strength + intelligence);
         }
     }

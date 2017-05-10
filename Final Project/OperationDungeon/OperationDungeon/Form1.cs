@@ -311,13 +311,9 @@ namespace OperationDungeon
 
             //Decide if its either a hero or enemy
             string tempBase = Convert.ToString(c.GetType().BaseType);
-            Console.WriteLine($"Attack Ran. character {c.CharacterName} is of type {tempBase}");
             tempBase = tempBase.Split('.')[1];
-            Console.WriteLine($"tempBase after split = {tempBase}");
-            //end hero/enemy check
             string nextCharacterBase = Convert.ToString(nextCharacter.GetType().BaseType);
             nextCharacterBase = nextCharacterBase.Split('.')[1];
-            //MessageBox.Show($"tempBase: {tempBase} - nextCharacterBaese: {nextCharacterBase}");
             if (tempBase != nextCharacterBase)
             {
                 //If they are not on the same team, attack
@@ -333,6 +329,7 @@ namespace OperationDungeon
             }
             else
             {
+                //If they are on the same team. Check if it is the Clerik's turn and heal if so
                 if (nextCharacter.GetType().ToString() == "OperationDungeon.Cleric")
                 {
                     int attackType = 0;
@@ -345,10 +342,8 @@ namespace OperationDungeon
                 }
                 else
                 {
-                    MessageBox.Show("Sorry you cannot click someone that is on your team ");
+                    MessageBox.Show("Sorry you cannot click someone that is on your team! Unless you are a Cleric!");
                     flag = true;
-                    //AttackCharacter(sender,e);
-                    //nextCharacter = Next();
                     return;
                 }
             }
@@ -364,12 +359,9 @@ namespace OperationDungeon
                     characterList[t].TurnCount--;
                 }
             }
-            //MessageBox.Show("Changing color back to normal"); 
-            //nextCharacter.panel1.BackColor = SystemColors.Control;
             nextCharacter.panel1.BackgroundImage = null;
             nextCharacter.chooseAttackComboBox.Visible = false;
             nextCharacter.chooseAttackLabel.Visible = false;
-            //MessageBox.Show($"Checking death of {c.CharacterName}");
             CheckDeath(c);
             nextCharacter = Next();
 
@@ -398,11 +390,6 @@ namespace OperationDungeon
         }
 
         private void character_load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void startGameButton_Click(object sender, EventArgs e)
         {
 
         }
