@@ -28,10 +28,7 @@ namespace OperationDungeon
         private void characterSelectSubmit_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            var form1 = new Form1();
-            form1.Closed += (s, args) => this.Close();
-            form1.Show();
+            
             //
             //Form1 form1 = new OperationDungeon.Form1();
             //form1.Show();
@@ -41,10 +38,18 @@ namespace OperationDungeon
             hero2Select = chooseCharacterControl2.stringType;
             hero3Select = chooseCharacterControl3.stringType;
             string[] heroArray = new string[] {hero1Select,hero2Select,hero3Select };
-            for(int i = 0; i < heroArray.Count(); i++)
-            {
-                Console.WriteLine(heroArray[i]);
-            }
+            this.Hide();
+            var form1 = new Form1(heroArray);
+            form1.Closed += (s, args) => this.Close();
+            form1.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            chooseCharacterControl1.comboBox1.SelectedIndex = 0;
+            chooseCharacterControl2.comboBox1.SelectedIndex = 1;
+            chooseCharacterControl3.comboBox1.SelectedIndex = 2;
+            Console.WriteLine("Default button clicked");
         }
     }
 }

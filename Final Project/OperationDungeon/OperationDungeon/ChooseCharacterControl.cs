@@ -23,7 +23,7 @@ namespace OperationDungeon
             //read in string
             ComboBox character = (ComboBox)sender;
             string stringSelect = character.Text;
-            MessageBox.Show($"Selected{stringSelect} of type {stringSelect.GetType()}");
+            //MessageBox.Show($"Selected{stringSelect} of type {stringSelect.GetType()}");
             SetPreviewImage(stringSelect);
         }
         private void SetPreviewImage(string characterType)

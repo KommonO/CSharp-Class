@@ -21,14 +21,15 @@ namespace OperationDungeon
         bool flag = false;
         int numEnemies = 0;
         int numHeroes = 0;
-        Game game;
+        //Game game;
+        string[] selectedHeroArray;
 
-        public Form1()
+        public Form1(string[] initHeroArray)
         {
             //SelectCharacterForm characterSelect = new OperationDungeon.SelectCharacterForm();
             //characterSelect.Show();
             InitializeComponent();
-            
+            selectedHeroArray = initHeroArray;
 
         }
 
@@ -50,24 +51,65 @@ namespace OperationDungeon
             
             
             /****add a switch case statement, return an array from creating a game of characters to be placed, should return in order of placement***/
+            for(int i = 0; i < selectedHeroArray.Count(); i++)
+            {
+                if(selectedHeroArray[i] == "Warrior")
+                {
+                    grid[0, i] = new Warrior("Warrior");
+
+                }
+                else if (selectedHeroArray[i] == "Mage")
+                {
+                    grid[0, i] = new Mage("Mage");
+                }
+                else if (selectedHeroArray[i] == "Cleric")
+                {
+                    grid[0, i] = new Cleric("Cleric");
+                }
+                else
+                {
+                    grid[0, i] = null;
+                }
+            }
             //Create Hero 1
-            grid[0, 0] = new Warrior("Warrior3");
-            grid[0, 0].Location = new Point(100, 50);
-            grid[0, 0].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[0, 0]);
+            //grid[0, 0] = new Warrior("Warrior3");
+            try
+            {
+                grid[0, 0].Location = new Point(100, 50);
+                grid[0, 0].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[0, 0]);
+            }
+            catch
+            {
+
+            }
 
 
             //Create Hero 2
-            grid[0, 1] = new Cleric("Cleric2");
-            grid[0, 1].Location = new Point(100, 175);
-            grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[0, 1]);
+            //grid[0, 1] = new Cleric("Cleric2");
+            try
+            {
+                grid[0, 1].Location = new Point(100, 175);
+                grid[0, 1].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[0, 1]);
+            }
+            catch
+            {
+
+            }
 
             ////Create Hero 3
-            grid[0, 2] = new Mage("Mage3");
-            grid[0, 2].Location = new Point(100, 300);
-            grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
-            this.Controls.Add(grid[0, 2]);
+            //grid[0, 2] = new Mage("Mage3");
+            try
+            {
+                grid[0, 2].Location = new Point(100, 300);
+                grid[0, 2].CharacterClick += new EventHandler(AttackCharacter);
+                this.Controls.Add(grid[0, 2]);
+            }
+            catch
+            {
+
+            }
 
             //Create Enemy 1
             grid[1, 0] = new Bandit("Bandit1");
@@ -213,7 +255,6 @@ namespace OperationDungeon
                             if (numEnemies == 0)
                             {
                                 eventTextbox.AppendText("Player has completed the round");
-                                MessageBox.Show("Congrats on winning the game");
                                 var restart = MessageBox.Show("You have defeated the horde of enemies! Would you like to play the next level?", "Message",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                 if(restart == DialogResult.Yes)
                                 {
@@ -234,7 +275,6 @@ namespace OperationDungeon
                             if (numHeroes == 0)
                             {
                                 eventTextbox.AppendText("Player has Lost the round");
-                                MessageBox.Show("You have lost the game! Thanks for playing! The Game will Close now.");
                                 var restart = MessageBox.Show("All of your characters have died! Would you like to try again?", "Message", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question);
                                 if (restart == DialogResult.Retry)
                                 {
