@@ -50,7 +50,7 @@ namespace OperationDungeon
             //SelectCharacterForm();
             
             
-            /****add a switch case statement, return an array from creating a game of characters to be placed, should return in order of placement***/
+            //Decide placement of heroes.
             for(int i = 0; i < selectedHeroArray.Count(); i++)
             {
                 if(selectedHeroArray[i] == "Warrior")
@@ -71,8 +71,7 @@ namespace OperationDungeon
                     grid[0, i] = null;
                 }
             }
-            //Create Hero 1
-            //grid[0, 0] = new Warrior("Warrior3");
+            //Place Hero 1, if applicable
             try
             {
                 grid[0, 0].Location = new Point(100, 50);
@@ -83,10 +82,7 @@ namespace OperationDungeon
             {
 
             }
-
-
-            //Create Hero 2
-            //grid[0, 1] = new Cleric("Cleric2");
+            //Place Hero 2, if applicable
             try
             {
                 grid[0, 1].Location = new Point(100, 175);
@@ -97,9 +93,7 @@ namespace OperationDungeon
             {
 
             }
-
-            ////Create Hero 3
-            //grid[0, 2] = new Mage("Mage3");
+            //Place Hero 3, if applicable
             try
             {
                 grid[0, 2].Location = new Point(100, 300);
@@ -328,27 +322,40 @@ namespace OperationDungeon
             {
                 //If they are not on the same team, attack
                 //MessageBox.Show("person clicked is not on the same team.");
+                //Now we attack the player that has been clicked with the Attack stats of the character with the lowest turnCount
+                int attackType = 0;
+                int[] tempAttack = nextCharacter.Attack(attackType);
+                int tempStrength = tempAttack[0];
+                int tempIntelligence = tempAttack[1];
+                c.Defense(tempStrength, tempIntelligence);
+                nextCharacter.SkillPoints = nextCharacter.SkillPoints + 25;
+                eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} with {tempStrength + tempIntelligence} attack. New Skill Points:{nextCharacter.SkillPoints} \n");
             }
             else
             {
-                MessageBox.Show("Sorry you cannot click someone that is on your team ");
-                flag = true;
-                //AttackCharacter(sender,e);
-                //nextCharacter = Next();
-                return;
+                if (nextCharacter.GetType().ToString() == "OperationDungeon.Cleric")
+                {
+                    int attackType = 0;
+                    int[] tempAttack = nextCharacter.Attack(attackType);
+                    int tempStrength = 0 - tempAttack[0];
+                    int tempIntelligence = 0 - tempAttack[1];
+                    c.Defense(tempStrength, tempIntelligence);
+                    nextCharacter.SkillPoints = nextCharacter.SkillPoints + 25;
+                    eventTextbox.AppendText($"Character: {c.CharacterName} was healed by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} with {tempStrength + tempIntelligence} attack. New Skill Points:{nextCharacter.SkillPoints} \n");
+                }
+                else
+                {
+                    MessageBox.Show("Sorry you cannot click someone that is on your team ");
+                    flag = true;
+                    //AttackCharacter(sender,e);
+                    //nextCharacter = Next();
+                    return;
+                }
             }
-
-            //Now we attack the player that has been clicked with the Attack stats of the character with the lowest turnCount
-            int[] tempAttack = nextCharacter.Attack();
-            int tempStrength = tempAttack[0];
-            int tempIntelligence = tempAttack[1];
-            c.Defense(tempStrength, tempIntelligence);
-            nextCharacter.SkillPoints=nextCharacter.SkillPoints + 25;
-            eventTextbox.AppendText($"Character: {c.CharacterName} was attacked by {nextCharacter.CharacterName}. Intelligence: {tempIntelligence} Strength: {tempStrength} with {tempStrength + tempIntelligence} attack \n");
             //adjust the turn counts
             for (int t = 0; t < characterList.Count(); t++)
             {
-               if(nextCharacter == characterList[t])
+                if (nextCharacter == characterList[t])
                 {
                     characterList[t].TurnCount = nextCharacter.Speed;
                 }
@@ -365,6 +372,8 @@ namespace OperationDungeon
             //MessageBox.Show($"Checking death of {c.CharacterName}");
             CheckDeath(c);
             nextCharacter = Next();
+
+
         }
        
 

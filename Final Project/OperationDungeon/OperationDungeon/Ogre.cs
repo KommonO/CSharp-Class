@@ -22,29 +22,17 @@ namespace OperationDungeon
         {
             Console.WriteLine($"Ogre Created, name = {name}");
             this.CharacterName = name;
-            this.Speed = 2; //Default speed of a Warrior character is 2? Using 1 for first submission purposes in case I can't add multiple Confirm with the UML Diagram
-            //this.healthBar.Style = ProgressBarStyle.Blocks;
+            this.Speed = 2; 
             this.Health = 100;
             this.button1.Image = System.Drawing.Image.FromFile(@"Ogre.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
-            this.strength = 101;
-            Console.WriteLine($"initial speed for {name} = {Speed}");
-            Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
-            //Somehow print the sprite of the character on the button 
-            //this.healthBar.Value = 100;
-        }
-        public override bool IsDead
-        {
-            set
-            {
-                isDead = value;
-                Console.WriteLine($"setting isDead for {name}to: {isDead}");
-            }
-            get
-            {
-                return isDead;
-            }
+            this.strength = 22;
+            this.skillPointsBar.Maximum = 99;
+            chooseAttackComboBox.Items.Add("Punch");
+            chooseAttackComboBox.Items.Add("Throw");
+            chooseAttackComboBox.SelectedIndex = 0;
+
         }
         public override int TurnCount
         {
@@ -83,30 +71,8 @@ namespace OperationDungeon
                 return name;
             }
         }
-        public override int Health
-        {
-            set
-            {
-                health = value;
-                try
-                {
-                    healthBar.Value = value;
-                    healthValueLabel.Text = $"{health}/100";
-                }
-                catch
-                {
-                    //Character has died
-                    this.Visible = false;
-                    isDead = true;
-                }
-            }
-            get
-            {
-                return health;
-            }
-        }
 
-        public override int[] Attack()
+        public override int[] Attack(int attackType)
         {
             //method to determine attack based on Strength(Physical strength) and Intelligence(Magical Strength)
             //alters the health bar of others
@@ -114,7 +80,6 @@ namespace OperationDungeon
 
             int[] attackArray = new int[2] { strength, intelligence };
             Console.WriteLine($"Ogre Attac Method ran, attackArray.Count: {attackArray.Count()}");
-            //Health = Health - 10;
             return attackArray;
 
         }
@@ -123,14 +88,6 @@ namespace OperationDungeon
             //alters the health bar of self
             this.Health = this.Health - (strength + intelligence);
         }
-        //protected override void characterSelectSubmit_Click(object sender, EventArgs e)
-        //{
-        //    //MessageBox.Show("derived");
-        //    MessageBox.Show("Warrior Clicked");
-        //    Console.WriteLine("Warrior Clicked");
-
-        //    Defense(5,5);
-        //}
     }
 }
 

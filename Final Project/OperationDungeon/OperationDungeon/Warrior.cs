@@ -23,32 +23,17 @@ namespace OperationDungeon
         {
             Console.WriteLine($"Warrior Created, name = {name}");
             this.CharacterName = name;
-            this.Speed = 1; //Default speed of a Warrior character is 2? Using 1 for first submission purposes in case I can't add multiple Confirm with the UML Diagram
-            //this.healthBar.Style = ProgressBarStyle.Blocks;
+            this.Speed = 1;
             this.Health = 100;
             this.SkillPoints = 50;
-
+            this.skillPointsBar.Maximum = 99;
             this.button1.Image = System.Drawing.Image.FromFile(@"Warrior.png");
             this.TurnCount = Speed;
             this.intelligence = 0;
             this.strength = 20;
-            Console.WriteLine($"initial speed for {name} = {Speed}");
-           
-            Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
-            //Somehow print the sprite of the character on the button 
-            //this.healthBar.Value = 100;
-        }
-        public override bool IsDead
-        {
-            set
-            {
-                isDead = value;
-                Console.WriteLine($"setting isDead for {name}to: {isDead}");
-            }
-            get
-            {
-                return isDead;
-            }
+            chooseAttackComboBox.Items.Add("Strike");
+            chooseAttackComboBox.SelectedIndex = 0;
+
         }
         public override int TurnCount
         {
@@ -87,28 +72,40 @@ namespace OperationDungeon
                 return name;
             }
         }
-        public override int Health
-        {
-            set
-            {
-                health = value;
-                try
-                {
-                    healthBar.Value = value;
-                    healthValueLabel.Text = $"{health}/100";
-                }
-                catch
-                {
-                    //Character has died
-                    this.Visible = false;
-                    isDead = true;
-                }
-            }
-            get
-            {
-                return health;
-            }
-        }
+        //public override int Health
+        //{
+        //    set
+        //    {
+        //        health = value;
+        //        try
+        //        {
+        //            healthBar.Value = value;
+        //            healthValueLabel.Text = $"{health}/100";
+        //        }
+        //        catch
+        //        {
+        //            if (health > 0)
+        //            {
+
+        //                healthBar.Value = healthBar.Maximum;
+        //                healthValueLabel.Text = $"{health}/100";
+        //            }
+        //            else
+        //            {
+        //                //Character has died
+        //                this.Visible = false;
+        //                isDead = true;
+
+        //            }
+                  
+                    
+        //        }
+        //    }
+        //    get
+        //    {
+        //        return health;
+        //    }
+        //}
         public override int SkillPoints
         {
             set
@@ -120,9 +117,8 @@ namespace OperationDungeon
                 }
                 catch
                 {
-                    //Character has died
-                    //this.Visible = false;
-                    //MessageBox.Show($"Skill points full: {skillPointsBar.Value}");
+                    //Skill Points bar is full. Add the special
+                    chooseAttackComboBox.Items.Add("Special");
                 }
             }
             get
@@ -131,7 +127,7 @@ namespace OperationDungeon
             }
         }
 
-        public override int[] Attack()
+        public override int[] Attack(int attackType)
         {
             //method to determine attack based on Strength(Physical strength) and Intelligence(Magical Strength)
             //alters the health bar of others

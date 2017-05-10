@@ -69,15 +69,18 @@
             // chooseAttackLabel
             // 
             this.chooseAttackLabel.AutoSize = true;
-            this.chooseAttackLabel.Location = new System.Drawing.Point(87, 4);
+            this.chooseAttackLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.chooseAttackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseAttackLabel.Location = new System.Drawing.Point(81, 12);
             this.chooseAttackLabel.Name = "chooseAttackLabel";
-            this.chooseAttackLabel.Size = new System.Drawing.Size(77, 13);
+            this.chooseAttackLabel.Size = new System.Drawing.Size(90, 13);
             this.chooseAttackLabel.TabIndex = 7;
             this.chooseAttackLabel.Text = "Choose Attack";
             this.chooseAttackLabel.Visible = false;
             // 
             // chooseAttackComboBox
             // 
+            this.chooseAttackComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chooseAttackComboBox.FormattingEnabled = true;
             this.chooseAttackComboBox.Location = new System.Drawing.Point(81, 28);
             this.chooseAttackComboBox.Name = "chooseAttackComboBox";

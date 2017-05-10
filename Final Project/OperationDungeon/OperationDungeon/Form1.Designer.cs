@@ -38,9 +38,6 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instructionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.attackBtn = new System.Windows.Forms.Button();
-            this.defenseBtn = new System.Windows.Forms.Button();
-            this.skillBtn = new System.Windows.Forms.Button();
             this.eventTextbox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -122,41 +119,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // attackBtn
-            // 
-            this.attackBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.attackBtn.Location = new System.Drawing.Point(13, 478);
-            this.attackBtn.Name = "attackBtn";
-            this.attackBtn.Size = new System.Drawing.Size(75, 23);
-            this.attackBtn.TabIndex = 2;
-            this.attackBtn.Text = "Attack";
-            this.attackBtn.UseVisualStyleBackColor = true;
-            // 
-            // defenseBtn
-            // 
-            this.defenseBtn.Location = new System.Drawing.Point(94, 478);
-            this.defenseBtn.Name = "defenseBtn";
-            this.defenseBtn.Size = new System.Drawing.Size(75, 23);
-            this.defenseBtn.TabIndex = 3;
-            this.defenseBtn.Text = "Defense";
-            this.defenseBtn.UseVisualStyleBackColor = true;
-            // 
-            // skillBtn
-            // 
-            this.skillBtn.Location = new System.Drawing.Point(175, 478);
-            this.skillBtn.Name = "skillBtn";
-            this.skillBtn.Size = new System.Drawing.Size(75, 23);
-            this.skillBtn.TabIndex = 4;
-            this.skillBtn.Text = "Skill";
-            this.skillBtn.UseVisualStyleBackColor = true;
-            // 
             // eventTextbox
             // 
-            this.eventTextbox.Location = new System.Drawing.Point(13, 507);
+            this.eventTextbox.Location = new System.Drawing.Point(13, 460);
             this.eventTextbox.Multiline = true;
             this.eventTextbox.Name = "eventTextbox";
             this.eventTextbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.eventTextbox.Size = new System.Drawing.Size(708, 98);
+            this.eventTextbox.Size = new System.Drawing.Size(708, 145);
             this.eventTextbox.TabIndex = 5;
             // 
             // Form1
@@ -167,9 +136,6 @@
             this.BackgroundImage = global::OperationDungeon.Properties.Resources.Dungeon1;
             this.ClientSize = new System.Drawing.Size(748, 617);
             this.Controls.Add(this.eventTextbox);
-            this.Controls.Add(this.skillBtn);
-            this.Controls.Add(this.defenseBtn);
-            this.Controls.Add(this.attackBtn);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -188,10 +154,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Button attackBtn;
-        private System.Windows.Forms.Button defenseBtn;
-        private System.Windows.Forms.Button skillBtn;
-        private System.Windows.Forms.TextBox eventTextbox;
+        public System.Windows.Forms.TextBox eventTextbox;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem instructionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

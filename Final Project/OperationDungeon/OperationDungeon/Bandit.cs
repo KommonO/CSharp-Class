@@ -30,8 +30,10 @@ namespace OperationDungeon
             this.TurnCount = Speed;
             this.intelligence = 0;
             this.strength = 15;
-            Console.WriteLine($"initial speed for {name} = {Speed}");
-            Console.WriteLine($"initial turnCount for {name} = {TurnCount}");
+            this.skillPointsBar.Maximum = 99;
+            chooseAttackComboBox.Items.Add("Slash");
+            chooseAttackComboBox.Items.Add("Jab");
+            chooseAttackComboBox.SelectedIndex = 0;
 
         }
 
@@ -48,28 +50,6 @@ namespace OperationDungeon
             }
         }
 
-        public override int Health
-        {
-            set
-            {
-                health = value;
-                try
-                {
-                    healthBar.Value = value;
-                    healthValueLabel.Text = $"{health}/100";
-                }
-                catch
-                {
-                    //Character has died
-                    this.Visible = false;
-                    isDead = true;
-                }
-            }
-            get
-            {
-                return health;
-            }
-        }
         public override int SkillPoints
         {
             set
@@ -84,6 +64,8 @@ namespace OperationDungeon
                     //Character has died
                     //this.Visible = false;
                     //MessageBox.Show("Skill points full");
+                    chooseAttackComboBox.Items.Add("Special");
+                    
                 }
             }
             get
@@ -91,19 +73,7 @@ namespace OperationDungeon
                 return skillPoints;
             }
         }
-        public override bool IsDead
-        {
-            set
-            {
-                isDead = value;
-                Console.WriteLine($"setting isDead for {name}to: {isDead}");
-            }
-            get
-            {
-                return isDead;
-            }
-        }
-        public override int[] Attack()
+        public override int[] Attack(int attackType)
         {
             //This will be the Attack method for the specific character, overriden based off character
             int[] tempArray = new int[2] { strength,intelligence};

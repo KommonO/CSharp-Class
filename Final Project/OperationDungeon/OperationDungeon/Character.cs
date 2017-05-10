@@ -34,6 +34,7 @@ namespace OperationDungeon
             this.healthBar.Maximum = 100;
             this.Health = 100;
             this.SkillPoints = 50;
+            this.skillPointsBar.Maximum = 99;
             
         }
         
@@ -86,7 +87,7 @@ namespace OperationDungeon
                 return speed;
             }
         }
-        public virtual bool IsDead
+        public bool IsDead
         {
             set
             {
@@ -98,12 +99,46 @@ namespace OperationDungeon
                 return isDead;
             }
         }
-        public virtual int Health
+        //public virtual int Health
+        //{
+        //    set
+        //    {
+        //        health = value;
+        //        healthBar.Value = value;
+        //    }
+        //    get
+        //    {
+        //        return health;
+        //    }
+        //}
+        public int Health
         {
             set
             {
                 health = value;
-                healthBar.Value = value;
+                try
+                {
+                    healthBar.Value = value;
+                    healthValueLabel.Text = $"{health}/100";
+                }
+                catch
+                {
+                    if (health > 0)
+                    {
+
+                        healthBar.Value = healthBar.Maximum;
+                        healthValueLabel.Text = $"{health}/100";
+                    }
+                    else
+                    {
+                        //Character has died
+                        this.Visible = false;
+                        isDead = true;
+
+                    }
+
+
+                }
             }
             get
             {
@@ -138,7 +173,7 @@ namespace OperationDungeon
 
 
         }
-        public virtual int[] Attack()
+        public virtual int[] Attack(int attackType)
         {
             int[] attackArray = new int[2];
             return attackArray;
